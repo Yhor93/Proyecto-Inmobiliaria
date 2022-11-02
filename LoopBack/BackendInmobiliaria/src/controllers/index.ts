@@ -7,3 +7,5 @@ export * from './solicitud-inmueble.controller';
 export * from './cliente.controller';
 export * from './administrador.controller';
 export * from './asesor.controller';
+export * from './solicitud.controller';
+export * from './inmueble.controller';

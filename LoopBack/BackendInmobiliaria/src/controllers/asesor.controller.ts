@@ -4,23 +4,17 @@ import {
   Filter,
   FilterExcludingWhere,
   repository,
-  Where,
+  Where
 } from '@loopback/repository';
 import {
-  post,
-  param,
-  get,
-  getModelSchemaRef,
-  patch,
-  put,
-  del,
-  requestBody,
-  response,
+  del, get,
+  getModelSchemaRef, param, patch, post, put, requestBody,
+  response
 } from '@loopback/rest';
 import {Asesor, Credenciales} from '../models';
 //import {Asesor} from '../models';
-import {AsesorRepository} from '../repositories';
 import {service} from '@loopback/core';
+import {AsesorRepository} from '../repositories';
 import {AutenticacionService} from '../services';
 const fetch = require('node-fetch');
 
@@ -28,13 +22,13 @@ const fetch = require('node-fetch');
 export class AsesorController {
   constructor(
     @repository(AsesorRepository)
-    public asesorRepository : AsesorRepository,
+    public asesorRepository: AsesorRepository,
     @service(AutenticacionService)
     public servicioautenticacion: AutenticacionService
 
   ) { }
 
-  @post('/Registro')
+  @post('/RegistroAsesor')
   @response(200, {
     description: 'Asesor model instance',
     content: {'application/json': {schema: getModelSchemaRef(Asesor)}},
@@ -74,7 +68,7 @@ export class AsesorController {
 
   }
 
-  @get('/asesores/count')
+  @get('/NumeroAsesores')
   @response(200, {
     description: 'Asesor model count',
     content: {'application/json': {schema: CountSchema}},
@@ -85,7 +79,7 @@ export class AsesorController {
     return this.asesorRepository.count(where);
   }
 
-  @get('/asesores')
+  @get('/BuscarAsesores')
   @response(200, {
     description: 'Array of Asesor model instances',
     content: {
@@ -103,7 +97,7 @@ export class AsesorController {
     return this.asesorRepository.find(filter);
   }
 
-  @patch('/asesores')
+  @patch('/EditarAsesores')
   @response(200, {
     description: 'Asesor PATCH success count',
     content: {'application/json': {schema: CountSchema}},
@@ -122,7 +116,7 @@ export class AsesorController {
     return this.asesorRepository.updateAll(asesor, where);
   }
 
-  @get('/asesores/{id}')
+  @get('/BuscarAsesores/{id}')
   @response(200, {
     description: 'Asesor model instance',
     content: {
@@ -138,7 +132,7 @@ export class AsesorController {
     return this.asesorRepository.findById(id, filter);
   }
 
-  @patch('/asesores/{id}')
+  @patch('/EditarAsesores/{id}')
   @response(204, {
     description: 'Asesor PATCH success',
   })
@@ -156,7 +150,7 @@ export class AsesorController {
     await this.asesorRepository.updateById(id, asesor);
   }
 
-  @put('/asesores/{id}')
+  @put('/Asesores/{id}')
   @response(204, {
     description: 'Asesor PUT success',
   })
@@ -167,7 +161,7 @@ export class AsesorController {
     await this.asesorRepository.replaceById(id, asesor);
   }
 
-  @del('/asesores/{id}')
+  @del('/EliminarAsesores/{id}')
   @response(204, {
     description: 'Asesor DELETE success',
   })

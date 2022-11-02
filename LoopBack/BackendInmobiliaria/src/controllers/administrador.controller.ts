@@ -5,18 +5,12 @@ import {
   Filter,
   FilterExcludingWhere,
   repository,
-  Where,
+  Where
 } from '@loopback/repository';
 import {
-  post,
-  param,
-  get,
-  getModelSchemaRef,
-  patch,
-  put,
-  del,
-  requestBody,
-  response,
+  del, get,
+  getModelSchemaRef, param, patch, post, put, requestBody,
+  response
 } from '@loopback/rest';
 import {Administrador, Credenciales} from '../models';
 import {AdministradorRepository} from '../repositories';
@@ -26,15 +20,15 @@ const fetch = require('node-fetch');
 export class AdministradorController {
   constructor(
     @repository(AdministradorRepository)
-    public administradorRepository : AdministradorRepository,
+    public administradorRepository: AdministradorRepository,
     @service(AutenticacionService)
     public servicioautenticacion: AutenticacionService
   ) { }
 
-  @post('/Registro')
-    @response(200, {
-      description: 'Administrador model instance',
-      content: {'application/json': {schema: getModelSchemaRef(Administrador)}},
+  @post('/RegistroAdministrador')
+  @response(200, {
+    description: 'Administrador model instance',
+    content: {'application/json': {schema: getModelSchemaRef(Administrador)}},
   })
   async create(
     @requestBody({
@@ -53,23 +47,23 @@ export class AdministradorController {
     let passwordE = this.servicioautenticacion.EncriptarPassword(password);
     administrador.clave = passwordE;
     let a = await this.administradorRepository.create(administrador);
-  //Notificaciòn
-  let destino = a.email;
-  let asunto = 'Registro en la APP - ';
-  let contenido = `Hola, ${a.nombres}, su nombre de usuario es: ${a.email}
+    //Notificaciòn
+    let destino = a.email;
+    let asunto = 'Registro en la APP - ';
+    let contenido = `Hola, ${a.nombres}, su nombre de usuario es: ${a.email}
   y su contraseña de acceso a nuestra app es: ${password}`;
 
-  /*ahora voy a conectarme a un servidor externo y consumir sus recursos*/
-  fetch(`http://localhost:5000/e-mail?correo_destino=${destino}&asunto=${asunto}&contenido=${contenido}`)
-  .then((data: any) => {
-    console.log(data);
-  });
-return a;
+    /*ahora voy a conectarme a un servidor externo y consumir sus recursos*/
+    fetch(`http://localhost:5000/e-mail?correo_destino=${destino}&asunto=${asunto}&contenido=${contenido}`)
+      .then((data: any) => {
+        console.log(data);
+      });
+    return a;
 
-    
+
   }
 
-  @get('/administradores/count')
+  @get('/NumeroAdministradores')
   @response(200, {
     description: 'Administrador model count',
     content: {'application/json': {schema: CountSchema}},
@@ -80,7 +74,7 @@ return a;
     return this.administradorRepository.count(where);
   }
 
-  @get('/administradores')
+  @get('/BuscarAdministradores')
   @response(200, {
     description: 'Array of Administrador model instances',
     content: {
@@ -98,7 +92,7 @@ return a;
     return this.administradorRepository.find(filter);
   }
 
-  @patch('/administradores')
+  @patch('/EditarAdministradores')
   @response(200, {
     description: 'Administrador PATCH success count',
     content: {'application/json': {schema: CountSchema}},
@@ -117,7 +111,7 @@ return a;
     return this.administradorRepository.updateAll(administrador, where);
   }
 
-  @get('/administradores')
+  @get('/AveriguarAdministradoresId')
   @response(200, {
     description: 'Administrador model instance',
     content: {
@@ -133,7 +127,7 @@ return a;
     return this.administradorRepository.findById(id, filter);
   }
 
-  @patch('/administradores/{id}')
+  @patch('/EditarAdministradoresId')
   @response(204, {
     description: 'Administrador PATCH success',
   })
@@ -151,7 +145,7 @@ return a;
     await this.administradorRepository.updateById(id, administrador);
   }
 
-  @put('/administradores/{id}')
+  @put('/Administradores/{id}')
   @response(204, {
     description: 'Administrador PUT success',
   })
@@ -162,7 +156,7 @@ return a;
     await this.administradorRepository.replaceById(id, administrador);
   }
 
-  @del('/administradores/{id}')
+  @del('/EliminarAdministradores/{id}')
   @response(204, {
     description: 'Administrador DELETE success',
   })
@@ -170,26 +164,26 @@ return a;
     await this.administradorRepository.deleteById(id);
   }
 
-  @post('/identificar-administrador',{
-    responses:{
-      '200':{
+  @post('/identificar-administrador', {
+    responses: {
+      '200': {
         description: "Identificaciòn del administrador"
       }
     }
   })
   async identificar(
     @requestBody() credenciales: Credenciales
-  ): Promise<Administrador|null> {
+  ): Promise<Administrador | null> {
     let clavecifrada = this.servicioautenticacion.EncriptarPassword(credenciales.password);
-    let administrador=await this.administradorRepository.findOne({
-     where: {
-       email: credenciales.usuario,
-       clave: clavecifrada
+    let administrador = await this.administradorRepository.findOne({
+      where: {
+        email: credenciales.usuario,
+        clave: clavecifrada
       }
     });
     return administrador;
-    
+
   }
-    
+
 
 }
