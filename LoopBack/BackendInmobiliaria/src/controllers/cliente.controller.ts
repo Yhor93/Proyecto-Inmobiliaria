@@ -8,9 +8,10 @@ import {
   Where
 } from '@loopback/repository';
 import {
-  del, get, getModelSchemaRef, param, patch, post, put, requestBody,
+  del, get, getModelSchemaRef, HttpErrors, param, patch, post, put, requestBody,
   response
 } from '@loopback/rest';
+import { keys } from '../configuracion/keys';
 
 import {Cliente, Credenciales} from '../models';
 import {ClienteRepository} from '../repositories';
@@ -55,7 +56,7 @@ export class ClienteController {
     let contenido = `Hola, ${c.nombres}, su nombre de usuario es: ${c.email}
     y su contraseña de acceso a nuestra app es: ${password}`;
 
-    fetch(`http://localhost:5000/e-mail?correo_destino=${destino}&asunto=${asunto}&contenido=${contenido}`)
+    fetch(`${keys.urlNotificaciones}/e-mail?correo_destino=${destino}&asunto=${asunto}&contenido=${contenido}`)
       .then((data: any) => {
         console.log(data);
       });
@@ -184,4 +185,40 @@ export class ClienteController {
     return cliente;
 
   }
-}
+
+  @post('/identificar-clienteT')
+    @response(200,{
+      description: "Identificaciòn del cliente con Generacion de token"
+    })
+     async identificarT(
+      @requestBody() credenciales: Credenciales
+     ){
+      credenciales.password=this.servicioautenticacion.EncriptarPassword(credenciales.password);
+      let p = await this.servicioautenticacion.IdentificarUsuario(credenciales);
+      if (p){
+        let token = this.servicioautenticacion.GeneracionToken(p);
+        return {
+          datos:{
+            nombres: p.nombres,
+            id:     p.id
+          },
+          tk: token
+
+        }
+     }else{
+      throw new HttpErrors[401] ("Datos invalidos");
+     }
+  }
+  
+} 
+   
+
+
+     
+  
+    
+
+  
+
+
+
