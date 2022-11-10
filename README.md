@@ -14,7 +14,7 @@
 `Funcionalidad 3`: Módulo del Administrador <br>
 `Funcionalidad 4`: Módulo del Asesor <br>
 
-=============== COMANDOS UTILIZADOS =================== <br>
+=============== COMANDOS UTILIZADOS BACKEND LOOPBACK =================== <br>
 npm i <br>
 npm install generate-password --save <br>
 npm install crypto-js --save <br>
@@ -24,7 +24,7 @@ npm i @loopback/authentication <br>
 npm i @loopback/security <br>
 npm i parse-bearer-token <br>
 
-=============== COMANDOS UTILIZADOS SERVIDOR PYTHON =================== <br>
+=============== COMANDOS UTILIZADOS  MICRO SERVICIO SERVIDOR PYTHON =================== <br>
 conda install -c  conda-forge twilio <br>
 conda install -c conda-forge sendgrid <br>
 
