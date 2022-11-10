@@ -16,7 +16,7 @@
 
 =============== COMANDOS UTILIZADOS =================== <br>
 npm i <br>
-npm install generate-password –save <br>
+npm install generate-password --save <br>
 npm install crypto-js --save <br>
 npm install node-fetch@2 <br>
 npm install jsonwebtoken <br>
