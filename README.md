@@ -24,6 +24,10 @@ npm i @loopback/authentication <br>
 npm i @loopback/security <br>
 npm i parse-bearer-token <br>
 
+=============== COMANDOS UTILIZADOS servidor Python =================== <br>
+conda install -c  conda-forge twilio <br>
+conda install -c conda-forge sendgrid <br>
+
 La inmobiliaria “Hogar Colombia” es una empresa que quiere incursionar en el mercado colombiano de la venta y alquiler de inmuebles. 
 Sin embargo, se ha identificado tras un estudio de mercado que los colombianos consultan a través de internet los inmuebles una y otra 
 vez antes de tomar una decisión tan importante como es el alquiler o la compra de un inmueble 
