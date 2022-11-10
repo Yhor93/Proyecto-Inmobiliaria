@@ -14,6 +14,16 @@
 `Funcionalidad 3`: Módulo del Administrador <br>
 `Funcionalidad 4`: Módulo del Asesor <br>
 
+=============== COMANDOS UTILIZADOS ===================
+npm i
+npm install generate-password –save
+npm install crypto-js --save
+npm install node-fetch@2
+npm install jsonwebtoken
+npm i @loopback/authentication
+npm i @loopback/security
+npm i parse-bearer-token
+
 La inmobiliaria “Hogar Colombia” es una empresa que quiere incursionar en el mercado colombiano de la venta y alquiler de inmuebles. 
 Sin embargo, se ha identificado tras un estudio de mercado que los colombianos consultan a través de internet los inmuebles una y otra 
 vez antes de tomar una decisión tan importante como es el alquiler o la compra de un inmueble 
