@@ -24,7 +24,7 @@ npm i @loopback/authentication <br>
 npm i @loopback/security <br>
 npm i parse-bearer-token <br>
 
-=============== COMANDOS UTILIZADOS servidor Python =================== <br>
+=============== COMANDOS UTILIZADOS SERVIDOR PYTHON =================== <br>
 conda install -c  conda-forge twilio <br>
 conda install -c conda-forge sendgrid <br>
 
