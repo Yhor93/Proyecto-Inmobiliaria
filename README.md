@@ -14,7 +14,7 @@
 `Funcionalidad 3`: Módulo del Administrador <br>
 `Funcionalidad 4`: Módulo del Asesor <br>
 
-=============== COMANDOS UTILIZADOS ===================
+=============== COMANDOS UTILIZADOS =================== <br>
 npm i
 npm install generate-password –save
 npm install crypto-js --save
