@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col s12 l4 offset-l4">
+        <div class="card grey lighten-3">
+            <div class="card-content">
+                <h4 class="card-title center-align">Iniciar Sesion</h4>
+                <form [formGroup]="fgValidador" (ngSubmit)="LoginUsuario()" class="login">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">email</i>
+                            <input formControlName="usuario" type="email" id="email" class="validate" />
+                            <label for="email">Digite Su Usuario</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">vpn_key</i>
+                            <input formControlName="clave" type="password" id="password" class="validate" />
+                            <label form="email">Digite Su Clave</label>
+
+                        </div>
+                    </div>
+                    <div class="row center-align">
+                        <button [disabled]="!fgValidador.valid" class="btn waves-effect waves-light" type="button" name="action"> Iniciar Sesion
+                        <i class="material-icons rigth">send</i>
+                    </button>
+                    </div>
+                    <div class="row center-align">
+                        <a routerLink="/inicio">Olvide la Clave</a>
+                        <hr>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<br> <br>
+
+
