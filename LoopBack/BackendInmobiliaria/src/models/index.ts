@@ -4,3 +4,6 @@ export * from './administrador.model';
 export * from './solicitud.model';
 export * from './inmueble.model';
 export * from './credenciales.model';
+export * from './usuario.model';
+export * from './roles.model';
+export * from './rol-usuario.model';
