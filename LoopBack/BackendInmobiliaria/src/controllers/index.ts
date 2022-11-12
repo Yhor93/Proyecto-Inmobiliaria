@@ -9,3 +9,7 @@ export * from './administrador.controller';
 export * from './asesor.controller';
 export * from './solicitud.controller';
 export * from './inmueble.controller';
+export * from './usuario-roles.controller';
+export * from './usuario.controller';
+export * from './roles.controller';
+export * from './rol-usuario.controller';

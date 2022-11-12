@@ -13,12 +13,13 @@ import {
 } from '@loopback/rest';
 import {Asesor, Credenciales} from '../models';
 //import {Asesor} from '../models';
+import {authenticate} from '@loopback/authentication';
 import {service} from '@loopback/core';
 import {AsesorRepository} from '../repositories';
 import {AutenticacionService} from '../services';
 const fetch = require('node-fetch');
 
-
+@authenticate("administrador")
 export class AsesorController {
   constructor(
     @repository(AsesorRepository)
