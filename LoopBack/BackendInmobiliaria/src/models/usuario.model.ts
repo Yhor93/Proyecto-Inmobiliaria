@@ -1,8 +1,9 @@
 import {Entity, hasMany, model, property} from '@loopback/repository';
-import {Solicitud} from './solicitud.model';
+import {RolUsuario} from './rol-usuario.model';
+import {Roles} from './roles.model';
 
 @model()
-export class Cliente extends Entity {
+export class Usuario extends Entity {
   @property({
     type: 'string',
     id: true,
@@ -30,18 +31,6 @@ export class Cliente extends Entity {
 
   @property({
     type: 'string',
-    required: false,
-  })
-  perfil?: string;
-
-  @property({
-    type: 'string',
-    required: false,
-  })
-  rol?: string;
-
-  @property({
-    type: 'string',
     required: true,
   })
   cedula: string;
@@ -64,16 +53,35 @@ export class Cliente extends Entity {
   })
   codeudor?: string;
 
-  @hasMany(() => Solicitud)
-  solicituds: Solicitud[];
+  @property({
+    type: 'string',
+    required: false,
+  })
+  perfil?: string;
 
-  constructor(data?: Partial<Cliente>) {
+  @property({
+    type: 'string',
+    required: false,
+  })
+  rol?: string;
+
+  @property({
+    type: 'array',
+    itemType: 'string',
+    required: false,
+  })
+  estadoAsesor?: string[];
+
+  @hasMany(() => Roles, {through: {model: () => RolUsuario}})
+  roles: Roles[];
+
+  constructor(data?: Partial<Usuario>) {
     super(data);
   }
 }
 
-export interface ClienteRelations {
+export interface UsuarioRelations {
   // describe navigational properties here
 }
 
-export type ClienteWithRelations = Cliente & ClienteRelations;
+export type UsuarioWithRelations = Usuario & UsuarioRelations;
