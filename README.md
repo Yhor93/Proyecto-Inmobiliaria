@@ -14,6 +14,20 @@
 `Funcionalidad 3`: Módulo del Administrador <br>
 `Funcionalidad 4`: Módulo del Asesor <br>
 
+
+
+La inmobiliaria “Hogar Colombia” es una empresa que quiere incursionar en el mercado colombiano de la venta y alquiler de inmuebles. 
+Sin embargo, se ha identificado tras un estudio de mercado que los colombianos consultan a través de internet los inmuebles una y otra 
+vez antes de tomar una decisión tan importante como es el alquiler o la compra de un inmueble 
+
+## :card_file_box:Tecnologias Utilizadas <br>
+:pushpin: C# <br>
+:pushpin: .NET CORE <br>
+:pushpin: Html <br>
+:pushpin: Css <br>
+:pushpin: JavaScript <br>
+:pushpin: Nodejs <br>
+
 =============== COMANDOS UTILIZADOS BACKEND LOOPBACK =================== <br>
 npm i <br>
 npm install generate-password --save <br>
@@ -27,15 +41,3 @@ npm i parse-bearer-token <br>
 =============== COMANDOS UTILIZADOS  MICRO SERVICIO SERVIDOR PYTHON =================== <br>
 conda install -c  conda-forge twilio <br>
 conda install -c conda-forge sendgrid <br>
-
-La inmobiliaria “Hogar Colombia” es una empresa que quiere incursionar en el mercado colombiano de la venta y alquiler de inmuebles. 
-Sin embargo, se ha identificado tras un estudio de mercado que los colombianos consultan a través de internet los inmuebles una y otra 
-vez antes de tomar una decisión tan importante como es el alquiler o la compra de un inmueble 
-
-## :card_file_box:Tecnologias Utilizadas <br>
-:pushpin: C# <br>
-:pushpin: .NET CORE <br>
-:pushpin: Html <br>
-:pushpin: Css <br>
-:pushpin: JavaScript <br>
-:pushpin: Nodejs <br>
