@@ -42,7 +42,7 @@ npm i parse-bearer-token <br>
 conda install -c  conda-forge twilio <br>
 conda install -c conda-forge sendgrid <br>
 
-============== COMANDOD PARA EL FRONTEND ANGULAR ============================  <br>
+============== COMANDOS PARA EL FRONTEND ANGULAR ============================  <br>
 npm install -g @angular/cli  <br>
 npm install materialize-css@next  <br>
 npm i cryptojs  <br>
