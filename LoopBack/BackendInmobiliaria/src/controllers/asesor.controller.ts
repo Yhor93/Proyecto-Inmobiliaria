@@ -15,7 +15,7 @@ import {Asesor, Credenciales} from '../models';
 //import {Asesor} from '../models';
 import {authenticate} from '@loopback/authentication';
 import {service} from '@loopback/core';
-import {AsesorRepository} from '../repositories';
+import {AsesorRepository, UsuarioRepository} from '../repositories';
 import {AutenticacionService} from '../services';
 const fetch = require('node-fetch');
 
@@ -24,6 +24,8 @@ export class AsesorController {
   constructor(
     @repository(AsesorRepository)
     public asesorRepository: AsesorRepository,
+    @repository(UsuarioRepository)
+    public usuarioRepository: UsuarioRepository,
     @service(AutenticacionService)
     public servicioautenticacion: AutenticacionService
 
@@ -52,6 +54,7 @@ export class AsesorController {
     asesor.clave = passwordE;
 
     let as = await this.asesorRepository.create(asesor);
+    let u = await this.usuarioRepository.create(asesor);
     //Notificaciòn
     let destino = as.email;
     let asunto = 'Registro en la APP - ';
