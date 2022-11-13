@@ -53,7 +53,7 @@ export class UsuarioController {
     usuario: Omit<Usuario, 'id'>,
   ): Promise<Usuario> {
     let clave = this.servicioAutenticacion.GenerarPassword();
-    //console.log("la clave es " + clave);
+    console.log("la clave es " + clave);
     let clavecifrada = this.servicioAutenticacion.EncriptarPassword(clave);
     usuario.clave = clavecifrada;
 
