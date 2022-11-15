@@ -9,7 +9,7 @@
         <li *ngIf="!sesionActiva"><a routerLink="/administracion/registrarse">Registrarse</a></li>
         <li *ngIf="sesionActiva"><a routerLink="/administracion/inmuebles">Inmuebles</a></li>
         <li *ngIf="sesionActiva"><a routerLink="/seguridad/cambio-clave">Cambiar Clave</a></li>
-        <li *ngIf="sesionActiva"><a routerLink="/seguridad/login">Cerrar Sesion</a></li>
+        <li *ngIf="sesionActiva"><a routerLink="/seguridad/logout">Cerrar Sesion</a></li>
         <li *ngIf="!sesionActiva"><a routerLink="/seguridad/login">Iniciar Sesion</a></li>
       </ul>
     </div>
@@ -21,7 +21,7 @@
       <li *ngIf="!sesionActiva"><a routerLink="/administracion/registrarse">Registrarse</a></li>
       <li *ngIf="sesionActiva"><a routerLink="/administracion/inmuebles">Inmuebles</a></li>
       <li *ngIf="sesionActiva"><a routerLink="/seguridad/cambio-clave">Cambiar Clave</a></li>
-      <li *ngIf="sesionActiva"><a routerLink="/seguridad/login">Cerrar Sesion</a></li>
+      <li *ngIf="sesionActiva"><a routerLink="/seguridad/logout">Cerrar Sesion</a></li>
       <li *ngIf="!sesionActiva"><a routerLink="/seguridad/login">Iniciar Sesion</a></li>
   </ul>
           
