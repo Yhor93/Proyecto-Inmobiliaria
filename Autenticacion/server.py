@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Oct 17 11:10:38 2022
+Created on Thu Nov  3 12:34:25 2022
 
-@author: ramiro
+@author: Yhor
 """
 
 from flask import Flask
@@ -48,7 +48,7 @@ def mail():
     mensaje=request.args.get("contenido")
     
     message = Mail(
-        from_email='tucorreosengrid@tudominio.com',
+        from_email='teams4net@gmail.com',
         to_emails=destino,
         subject=asunto,
         html_content=mensaje)
@@ -58,11 +58,10 @@ def mail():
         print(response.status_code)
         print(response.body)
         print(response.headers)
-        return "Correo enviado exitosamente!"
+        return "Correo Enviado Satisfactoriamente"
     except Exception as e:
         print(e.message)
-        return "Error!, el correo no fue enviado"  
-    
+        return "Error!! Correo No Enviado"
 
 
 

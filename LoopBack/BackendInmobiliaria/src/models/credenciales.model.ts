@@ -12,7 +12,7 @@ export class Credenciales extends Model {
     type: 'string',
     required: true,
   })
-  password: string;
+  clave: string;
 
 
   constructor(data?: Partial<Credenciales>) {

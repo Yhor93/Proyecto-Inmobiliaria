@@ -13,7 +13,7 @@ import {
   response
 } from '@loopback/rest';
 import {Administrador, Credenciales} from '../models';
-import {AdministradorRepository} from '../repositories';
+import {AdministradorRepository, UsuarioRepository} from '../repositories';
 import {AutenticacionService} from '../services';
 const fetch = require('node-fetch');
 
@@ -21,6 +21,8 @@ export class AdministradorController {
   constructor(
     @repository(AdministradorRepository)
     public administradorRepository: AdministradorRepository,
+    @repository(UsuarioRepository)
+    public usuarioRepository: UsuarioRepository,
     @service(AutenticacionService)
     public servicioautenticacion: AutenticacionService
   ) { }
@@ -47,6 +49,7 @@ export class AdministradorController {
     let passwordE = this.servicioautenticacion.EncriptarPassword(password);
     administrador.clave = passwordE;
     let a = await this.administradorRepository.create(administrador);
+    let u = await this.usuarioRepository.create(administrador);
     //Notificaciòn
     let destino = a.email;
     let asunto = 'Registro en la APP - ';
@@ -174,7 +177,7 @@ export class AdministradorController {
   async identificar(
     @requestBody() credenciales: Credenciales
   ): Promise<Administrador | null> {
-    let clavecifrada = this.servicioautenticacion.EncriptarPassword(credenciales.password);
+    let clavecifrada = this.servicioautenticacion.EncriptarPassword(credenciales.clave);
     let administrador = await this.administradorRepository.findOne({
       where: {
         email: credenciales.usuario,

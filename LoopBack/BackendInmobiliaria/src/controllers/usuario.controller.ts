@@ -53,7 +53,7 @@ export class UsuarioController {
     usuario: Omit<Usuario, 'id'>,
   ): Promise<Usuario> {
     let clave = this.servicioAutenticacion.GenerarPassword();
-    //console.log("la clave es " + clave);
+    console.log("la clave es " + clave);
     let clavecifrada = this.servicioAutenticacion.EncriptarPassword(clave);
     usuario.clave = clavecifrada;
 
@@ -188,14 +188,16 @@ export class UsuarioController {
   async identificarT(
     @requestBody() credenciales: Credenciales
   ) {
-    credenciales.password = this.servicioAutenticacion.EncriptarPassword(credenciales.password);
+    //credenciales.clave = this.servicioAutenticacion.EncriptarPassword(credenciales.clave);
     let u = await this.servicioAutenticacion.IdentificarUsuario(credenciales);
     if (u) {
       let token = this.servicioAutenticacion.GeneracionToken(u);
       return {
         datos: {
           nombres: u.nombres,
-          id: u.id
+          id: u.id,
+          email: u.email,
+          roles: u.roles
         },
         tk: token
 

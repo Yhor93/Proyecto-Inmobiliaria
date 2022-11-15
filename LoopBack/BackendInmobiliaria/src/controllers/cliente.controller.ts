@@ -11,10 +11,10 @@ import {
   del, get, getModelSchemaRef, HttpErrors, param, patch, post, put, requestBody,
   response
 } from '@loopback/rest';
-import { keys } from '../configuracion/keys';
+import {keys} from '../configuracion/keys';
 
 import {Cliente, Credenciales} from '../models';
-import {ClienteRepository} from '../repositories';
+import {ClienteRepository, UsuarioRepository} from '../repositories';
 import {AutenticacionService} from '../services';
 const fetch = require('node-fetch');
 
@@ -22,6 +22,8 @@ export class ClienteController {
   constructor(
     @repository(ClienteRepository)
     public clienteRepository: ClienteRepository,
+    @repository(UsuarioRepository)
+    public usuarioRepository: UsuarioRepository,
     @service(AutenticacionService)
     public servicioautenticacion: AutenticacionService
   ) { }
@@ -46,10 +48,12 @@ export class ClienteController {
   ): Promise<Cliente> {
 
     let password = this.servicioautenticacion.GenerarPassword();
+    console.log("la clave es " + password);
     let passwordE = this.servicioautenticacion.EncriptarPassword(password);
     cliente.clave = passwordE;
 
     let c = await this.clienteRepository.create(cliente);
+    let u = await this.usuarioRepository.create(cliente);
     //Notificaciòn
     let destino = c.email;
     let asunto = 'Registro en la APP - ';
@@ -175,7 +179,7 @@ export class ClienteController {
   async identificar(
     @requestBody() credenciales: Credenciales
   ): Promise<Cliente | null> {
-    let clavecifrada = this.servicioautenticacion.EncriptarPassword(credenciales.password);
+    let clavecifrada = this.servicioautenticacion.EncriptarPassword(credenciales.clave);
     let cliente = await this.clienteRepository.findOne({
       where: {
         email: credenciales.usuario,
@@ -187,38 +191,27 @@ export class ClienteController {
   }
 
   @post('/identificar-clienteT')
-    @response(200,{
-      description: "Identificaciòn del cliente con Generacion de token"
-    })
-     async identificarT(
-      @requestBody() credenciales: Credenciales
-     ){
-      credenciales.password=this.servicioautenticacion.EncriptarPassword(credenciales.password);
-      let p = await this.servicioautenticacion.IdentificarUsuario(credenciales);
-      if (p){
-        let token = this.servicioautenticacion.GeneracionToken(p);
-        return {
-          datos:{
-            nombres: p.nombres,
-            id:     p.id
-          },
-          tk: token
+  @response(200, {
+    description: "Identificaciòn del cliente con Generacion de token"
+  })
+  async identificarT(
+    @requestBody() credenciales: Credenciales
+  ) {
+    credenciales.clave = this.servicioautenticacion.EncriptarPassword(credenciales.clave);
+    let p = await this.servicioautenticacion.IdentificarUsuario(credenciales);
+    if (p) {
+      let token = this.servicioautenticacion.GeneracionToken(p);
+      return {
+        datos: {
+          nombres: p.nombres,
+          id: p.id
+        },
+        tk: token
 
-        }
-     }else{
-      throw new HttpErrors[401] ("Datos invalidos");
-     }
+      }
+    } else {
+      throw new HttpErrors[401]("Datos invalidos");
+    }
   }
-  
-} 
-   
 
-
-     
-  
-    
-
-  
-
-
-
+}
