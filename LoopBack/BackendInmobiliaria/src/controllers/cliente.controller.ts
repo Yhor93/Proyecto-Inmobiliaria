@@ -179,7 +179,7 @@ export class ClienteController {
   async identificar(
     @requestBody() credenciales: Credenciales
   ): Promise<Cliente | null> {
-    let clavecifrada = this.servicioautenticacion.EncriptarPassword(credenciales.password);
+    let clavecifrada = this.servicioautenticacion.EncriptarPassword(credenciales.clave);
     let cliente = await this.clienteRepository.findOne({
       where: {
         email: credenciales.usuario,
@@ -197,7 +197,7 @@ export class ClienteController {
   async identificarT(
     @requestBody() credenciales: Credenciales
   ) {
-    credenciales.password = this.servicioautenticacion.EncriptarPassword(credenciales.password);
+    credenciales.clave = this.servicioautenticacion.EncriptarPassword(credenciales.clave);
     let p = await this.servicioautenticacion.IdentificarUsuario(credenciales);
     if (p) {
       let token = this.servicioautenticacion.GeneracionToken(p);

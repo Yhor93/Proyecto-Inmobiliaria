@@ -35,7 +35,7 @@ export class AutenticacionService {
       let p = this.userRepo.findOne({
         where: {
           email: credenciales.usuario,
-          clave: credenciales.password
+          clave: credenciales.clave
         }, include: ['roles']
       });
       if (p) {

@@ -177,7 +177,7 @@ export class AdministradorController {
   async identificar(
     @requestBody() credenciales: Credenciales
   ): Promise<Administrador | null> {
-    let clavecifrada = this.servicioautenticacion.EncriptarPassword(credenciales.password);
+    let clavecifrada = this.servicioautenticacion.EncriptarPassword(credenciales.clave);
     let administrador = await this.administradorRepository.findOne({
       where: {
         email: credenciales.usuario,

@@ -185,7 +185,7 @@ export class AsesorController {
   async identificar(
     @requestBody() credenciales: Credenciales
   ): Promise<Asesor | null> {
-    let clavecifrada = this.servicioautenticacion.EncriptarPassword(credenciales.password);
+    let clavecifrada = this.servicioautenticacion.EncriptarPassword(credenciales.clave);
     let asesor = await this.asesorRepository.findOne({
       where: {
         email: credenciales.usuario,

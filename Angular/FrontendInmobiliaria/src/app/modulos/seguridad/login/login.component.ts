@@ -1,7 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SeguridadService } from 'src/app/servicios/shared/seguridad.service';
 declare const generarVentanaModal:any;
-const cryptoJS = require("cryptojs");
+import {MD5} from 'crypto-js';
+//const CryptoJS = require('crypto-js');
+//import * as cryptoJS from "crypto-js";
+import { credencialesUsuarioModel } from 'src/app/modelos/credencialesUsuario.modelo';
+import { LocalStorageService } from 'src/app/servicios/shared/local-storage.service';
+import { DatosSesionModel } from 'src/app/modelos/datos-sesion.models';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -11,18 +19,45 @@ const cryptoJS = require("cryptojs");
 })
 export class LoginComponent implements OnInit {
 
-  fgValidador: FormGroup = this.fb.group({
-    'usuario': ['',[Validators.required, Validators.email]],
-    'clave': ['',[Validators.required,]]
-  })
+  fLoginValidador: FormGroup = new FormGroup({});
+  
 
-   constructor(private fb: FormBuilder) { }
+   constructor(
+    private fb: FormBuilder,
+    private servicioSeguridad: SeguridadService,
+    private servicioLocalStorage: LocalStorageService,
+    private router: Router
+    ){ }
 
   ngOnInit(): void {
-  }
+    this.LoginUsuario();
+   }
+
   LoginUsuario(){
-    let usuario = this.fgValidador.controls["usuario"].value;
-    let clave = this.fgValidador.controls["clave"].value;
-    let claveCifrada = cryptoJS.MD5(clave);
+    this.fLoginValidador=this.fb.group({
+      usuario:["yormanqp@gmail.com",[Validators.required,Validators.email]],
+      clave: ["ekXlp1Ep",[Validators.required]]
+    });
+  }
+
+  Login(){
+    if(this.fLoginValidador.invalid){
+      generarVentanaModal("Datos Invalidos");
+    }else{
+      let datos = new credencialesUsuarioModel();
+      datos.usuario=this.fLoginValidador.controls['usuario'].value;
+      datos.clave=MD5(this.fLoginValidador.controls['clave'].value).toString();
+      this.servicioSeguridad.Logueo(datos).subscribe({
+        next: (data:DatosSesionModel)=>{
+        console.log(data);
+        let guardar = this.servicioLocalStorage.guardarDatosSesion(data);
+        data.Logueado=true;
+        this.servicioSeguridad.verificarSesionActiva();
+        this.router.navigate(['inicio']);
+      },
+        error: (e)=>console.log(e)
+      });
+      
+    }
   }
 }
