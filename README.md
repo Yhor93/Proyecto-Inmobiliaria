@@ -21,8 +21,7 @@ Sin embargo, se ha identificado tras un estudio de mercado que los colombianos c
 vez antes de tomar una decisión tan importante como es el alquiler o la compra de un inmueble 
 
 ## :card_file_box:Tecnologias Utilizadas <br>
-:pushpin: C# <br>
-:pushpin: .NET CORE <br>
+:pushpin: TypeScript <br>
 :pushpin: Html <br>
 :pushpin: Css <br>
 :pushpin: JavaScript <br>
