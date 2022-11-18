@@ -56,13 +56,11 @@ const routes: Routes = [
   },
   {
     path: 'mision',
-    component: MisionComponent,
-    canActivate:[ValidadorSesionGuard] 
+    component: MisionComponent 
   },
   {
     path: 'vision',
-    component: VisionComponent,
-    canActivate:[ValidadorSesionGuard] 
+    component: VisionComponent 
   }
 ];
 
