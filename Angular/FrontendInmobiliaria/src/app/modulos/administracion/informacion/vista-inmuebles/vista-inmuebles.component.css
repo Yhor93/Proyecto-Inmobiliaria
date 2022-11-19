@@ -1,0 +1,39 @@
+.container{
+    background-color: #3949ab;
+    width: 100%;
+    padding: auto;
+    border-radius: 7px;   
+}
+
+.img1{
+    min-height: 270px;
+    width: 100%;
+    border-radius: 10px;
+    text-align: center;
+}
+.divInmueble{
+    padding: 20px;
+    height: 60%;
+    width: 100%;
+}
+
+.boton{
+    text-align: center;
+    border-radius: 8px;
+    width: 100%;
+    border-color: #fff;
+    
+    
+}
+.textarea1{
+    background-color:  #7986cb;
+    min-height: 100px;
+    border-radius: 10px;
+}
+.label1{
+    text-align: center;
+}
+input:hover{
+    background-color:#bbdefb;
+    cursor:pointer;
+}
