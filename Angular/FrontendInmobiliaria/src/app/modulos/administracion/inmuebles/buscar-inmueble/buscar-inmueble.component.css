@@ -1,6 +1,25 @@
 .row {
+    
     display: flex;
     align-items: left;
-    justify-content: center;
+    justify-content:baseline;
 }
-
+.card-title{
+    font-weight: bold;
+}
+.valor{
+    font-weight: bold;
+}
+.card-action{
+    font-weight: bold;
+}
+.col s2 {
+    margin: 50px;
+}
+.foto{
+    width: 100%;
+    height: auto;
+}
+h2{
+    text-align: center;
+}

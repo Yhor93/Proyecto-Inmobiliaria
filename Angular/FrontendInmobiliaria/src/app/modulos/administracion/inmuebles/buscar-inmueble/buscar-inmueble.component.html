@@ -1,22 +1,17 @@
-<br>
-    
-
-<tr *ngFor="let p of listainmuebles">
-    
-    
-    <div class="row">
-        <div class="col s3">
-            <img src="{{p.fotografias}}">
-            <th>{{p.tipoInmueble}}</th>
-            <th>{{p.tipoOferta}}</th>
-            <h5>{{p.valor}}</h5>
-            <th>{{p.departamento}}</th>
-            <th>{{p.cuidad}}</th>           
-             
-              
+<h2>Casas</h2>
+<div class="row">
+    <div *ngFor="let p of listainmuebles"class="col s3">
+        <a routerLink="/inicio">
+            <img class="foto" src="{{p.fotografias}}">
+        </a>
+        {{p.tipoInmueble}}
+        {{p.tipoOferta}} <br>
+        <p class="valor">$ {{p.valor}} </p>
+        {{p.departamento}}
+        {{p.cuidad}} <br> <br>
+        {{p.enlaceVideo}}
+        <div class="valor">
+            <a routerLink="/inicio">Informaciòn</a>
         </div>
-            
     </div>
-         
-</tr>
-
+</div>
