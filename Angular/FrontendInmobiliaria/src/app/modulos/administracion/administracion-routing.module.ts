@@ -56,11 +56,11 @@ const routes: Routes = [
   },
   {
     path: 'mision',
-    component: MisionComponent 
+    component: MisionComponent
   },
   {
     path: 'vision',
-    component: VisionComponent 
+    component: VisionComponent
   }
 ];
 

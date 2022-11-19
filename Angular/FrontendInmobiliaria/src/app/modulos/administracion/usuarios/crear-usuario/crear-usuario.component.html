@@ -4,11 +4,11 @@
         <div class="card grey lighten-3">
             <div class="card-content">
                 <h4 class="card-title center-align">Registro de Usuario</h4>
-                <form [formGroup]="formularioRegistro" (ngsubmit)="registroUsuarios()" class="Registro">
+                <form [formGroup]="formularioRegistro" (ngsubmit)="formulario()" class="Registro">
                     <div class="group">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">drive_file_rename_outline</i>
-                            <label for="nombre" class="label">Digite su Nombre completo</label>
+                            <label for="nombre" class="label">Digite su nombre completo</label>
                             <input formControlName="nombre"  id="nombre" type="text" class="validate">
                         </div>
                     </div>
@@ -46,7 +46,7 @@
                     </div>
 
                     <div class="row center-align">
-                        <button [disabled]="!formularioRegistro.valid"  (click)="registroUsuarios()"  class="btn waves-effect waves-light" 
+                        <button routerLink="/inicio" [disabled]="!formularioRegistro.valid"  (click)="registroUsuarios()"  class="btn waves-effect waves-light" 
                         type="submit" name="action">Registrarse <i class="material-icons rigth">how_to_reg</i></button>
                             &nbsp;&nbsp;
                         <button routerLink="/inicio" class="btn waves-effect waves-light" type="submit"

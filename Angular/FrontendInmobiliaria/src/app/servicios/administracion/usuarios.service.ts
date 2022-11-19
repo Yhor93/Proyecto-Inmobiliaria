@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { DatosSesionModel } from 'src/app/modelos/datos-sesion.models';
-import { LocalStorageService } from '../shared/local-storage.service';
 import { DatosUserModel } from 'src/app/modelos/datos-user.model';
 
 @Injectable({
@@ -14,25 +13,20 @@ export class UsuariosService {
   infoSesion: BehaviorSubject<DatosSesionModel> = new BehaviorSubject<DatosSesionModel>(new DatosSesionModel())
   
   
-
   constructor(
-    private Http: HttpClient,
-    private servicioLocalStorage: LocalStorageService
+    private Http: HttpClient
     ){ 
   }
-
-  Registro(datos:DatosUserModel):Observable<any>{  
-  return this.Http.post(`${this.url}/RegistroUsuarios`,{
-    nombre: datos.nombre,
-    cedula: datos.cedula,
-    celular: datos.celular,
-    email: datos.email,
-    ciudad: datos.ciudad
-  },{
+  
+  registrarU(usuario:DatosUserModel):Observable<DatosUserModel>{  
+    return this.Http.post<DatosUserModel>(`${this.url}/RegistroUsuarios`,{
+      nombres: usuario.nombres,
+      cedula: usuario.cedula,
+      celular: usuario.celular,
+      email: usuario.email,
+      ciudad: usuario.ciudad
+    },{
     headers: new HttpHeaders({})
-  });
-    
-}
-
-
+    });
+  }
 }

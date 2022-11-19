@@ -1,6 +1,6 @@
 export class DatosUserModel{
     id?: string;
-    nombre?: string;
+    nombres?: string;
     cedula?: string;
     celular?: string;
     email?: string;
