@@ -13,6 +13,8 @@ import { EditarInmuebleComponent } from './inmuebles/editar-inmueble/editar-inmu
 import { MisionComponent } from './informacion/mision/mision.component';
 import { VisionComponent } from './informacion/vision/vision.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { VistaInmueblesComponent } from './informacion/vista-inmuebles/vista-inmuebles.component';
+import { CrearAsesorComponent } from './usuarios/crear-asesor/crear-asesor.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     EliminarInmuebleComponent,
     EditarInmuebleComponent,
     MisionComponent,
-    VisionComponent
+    VisionComponent,
+    VistaInmueblesComponent,
+    CrearAsesorComponent
   ],
   imports: [
     CommonModule,

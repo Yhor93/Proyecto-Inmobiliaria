@@ -12,6 +12,8 @@ import { EditarUsuarioComponent } from './usuarios/editar-usuario/editar-usuario
 import { EliminarUsuarioComponent } from './usuarios/eliminar-usuario/eliminar-usuario.component';
 import { ValidadorSesionGuard } from 'src/app/guardianes/validador-sesion.guard';
 import { InvalidarSesionGuard } from 'src/app/guardianes/invalidar-sesion.guard';
+import { CrearAsesorComponent } from './usuarios/crear-asesor/crear-asesor.component';
+import { VistaInmueblesComponent } from './informacion/vista-inmuebles/vista-inmuebles.component';
 
 const routes: Routes = [
   {
@@ -61,6 +63,14 @@ const routes: Routes = [
   {
     path: 'vision',
     component: VisionComponent
+  },
+  {
+    path: 'crear-asesor',
+    component: CrearAsesorComponent
+  },
+  {
+    path: 'vista-inmuebles',
+    component: VistaInmueblesComponent
   }
 ];
 
