@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
   LoginUsuario(){
     this.fLoginValidador=this.fb.group({
       usuario:["yormanqp@gmail.com",[Validators.required,Validators.email]],
-      clave: ["ekXlp1Ep",[Validators.required]]
+      clave: ["JfA6CIDT",[Validators.required]]
     });
   }
 
