@@ -10,55 +10,57 @@ import { BuscarUsuarioComponent } from './usuarios/buscar-usuario/buscar-usuario
 import { CrearUsuarioComponent } from './usuarios/crear-usuario/crear-usuario.component';
 import { EditarUsuarioComponent } from './usuarios/editar-usuario/editar-usuario.component';
 import { EliminarUsuarioComponent } from './usuarios/eliminar-usuario/eliminar-usuario.component';
+import { ValidadorSesionGuard } from 'src/app/guardianes/validador-sesion.guard';
+import { InvalidarSesionGuard } from 'src/app/guardianes/invalidar-sesion.guard';
 
 const routes: Routes = [
   {
-    path: 'crear-usuario',
-    component: CrearUsuarioComponent
+    path: 'registrarse',
+    component: CrearUsuarioComponent,
+    canActivate: [InvalidarSesionGuard]
   },
   {
     path: 'editar-usuario',
-    component: EditarUsuarioComponent
+    component: EditarUsuarioComponent,
+    canActivate:[ValidadorSesionGuard] 
   },
   {
     path: 'eliminar-usuario',
-    component: EliminarUsuarioComponent
+    component: EliminarUsuarioComponent,
+    canActivate:[ValidadorSesionGuard] 
   },
   {
     path: 'buscar-usuario',
-    component: BuscarUsuarioComponent
+    component: BuscarUsuarioComponent,
+    canActivate:[ValidadorSesionGuard] 
   },
   {
     path: 'crear-inmueble',
-    component: CrearInmuebleComponent
+    component: CrearInmuebleComponent,
+    canActivate:[ValidadorSesionGuard] 
   },
   {
     path: 'editar-inmueble',
-    component: EditarInmuebleComponent
+    component: EditarInmuebleComponent,
+    canActivate:[ValidadorSesionGuard] 
   },
   {
     path: 'eliminar-inmueble',
-    component: EliminarInmuebleComponent
+    component: EliminarInmuebleComponent,
+    canActivate:[ValidadorSesionGuard] 
   },
   {
     path: 'buscar-inmueble',
-    component: BuscarInmuebleComponent
+    component: BuscarInmuebleComponent,
+    canActivate:[ValidadorSesionGuard] 
   },
   {
     path: 'mision',
-    component: MisionComponent
+    component: MisionComponent 
   },
   {
     path: 'vision',
-    component: VisionComponent
-  },
-  {
-    path: 'registrarse',
-    component: CrearUsuarioComponent
-  },
-  {
-    path: 'inmuebles',
-    component: CrearInmuebleComponent
+    component: VisionComponent 
   }
 ];
 

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { credencialesUsuarioModel } from 'src/app/modelos/credencialesUsuario.modelo';
 import { DatosSesionModel } from 'src/app/modelos/datos-sesion.models';
+import { RolesModel } from 'src/app/modelos/roles.model';
 import { LocalStorageService } from './local-storage.service';
 
 @Injectable({
@@ -12,6 +13,7 @@ export class SeguridadService {
 
   url= 'http://localhost:3000';
   infoSesion: BehaviorSubject<DatosSesionModel> = new BehaviorSubject<DatosSesionModel>(new DatosSesionModel())
+  
 
   constructor(
     private Http: HttpClient,
@@ -30,6 +32,7 @@ export class SeguridadService {
       
   }
 
+ 
   verificarSesionActiva(){
     let info = this.servicioLocalStorage.obtenerSesionInfo();
     if (info) {
@@ -48,4 +51,9 @@ export class SeguridadService {
   obtenerInfoSesion(){
     return this.infoSesion.asObservable()
   }
+
+  obtenerRoles():Observable<RolesModel[]>{
+    return this.Http.get<RolesModel[]>(`${this.url}/roles`);
+ }
+  
 }
