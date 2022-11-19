@@ -53,7 +53,7 @@ export class InmuebleController {
   ): Promise<Count> {
     return this.inmuebleRepository.count(where);
   }
-
+  @authenticate.skip()
   @get('/BuscarInmuebles')
   @response(200, {
     description: 'Array of Inmueble model instances',
