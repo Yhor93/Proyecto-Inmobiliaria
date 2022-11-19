@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { InvalidarSesionGuard } from 'src/app/guardianes/invalidar-sesion.guard';
+import { ValidadorSesionGuard } from 'src/app/guardianes/validador-sesion.guard';
 import { CambioClaveComponent } from './cambio-clave/cambio-clave.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
@@ -9,18 +11,23 @@ const routes: Routes = [
 {
   path: 'login', 
   component: LoginComponent
+  
+  
 },
 {
   path: 'recuperar-clave', 
-  component: RecuperarClaveComponent
+  component: RecuperarClaveComponent,
+  canActivate:[ValidadorSesionGuard] 
 },
 {
   path: 'cambio-clave', 
-  component: CambioClaveComponent
+  component: CambioClaveComponent,
+  canActivate:[ValidadorSesionGuard] 
 },
 {
   path: 'logout', 
-  component: LogoutComponent
+  component: LogoutComponent,
+  canActivate:[ValidadorSesionGuard] 
 }
 ];
 

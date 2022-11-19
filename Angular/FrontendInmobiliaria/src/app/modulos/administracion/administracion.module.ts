@@ -12,6 +12,7 @@ import { EliminarInmuebleComponent } from './inmuebles/eliminar-inmueble/elimina
 import { EditarInmuebleComponent } from './inmuebles/editar-inmueble/editar-inmueble.component';
 import { MisionComponent } from './informacion/mision/mision.component';
 import { VisionComponent } from './informacion/vision/vision.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -29,7 +30,10 @@ import { VisionComponent } from './informacion/vision/vision.component';
   ],
   imports: [
     CommonModule,
-    AdministracionRoutingModule
+    AdministracionRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
+    
   ]
 })
 export class AdministracionModule { }

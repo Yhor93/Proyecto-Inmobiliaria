@@ -1,0 +1,69 @@
+.texto{
+    text-align: center;
+}
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.indigo{
+    text-align: center;
+    color: white;
+}
+
+.slider-container {
+    display: flex;
+    width: 80%;
+    height: 80vh;
+    overflow-x: scroll;
+  }
+  
+  .slider-container img {
+    display: flex;
+    flex: 0 0 100%;
+    width: 60%;
+    object-fit: cover;
+  }
+  
+  .slider-container img {
+    flex: 100% 0 0;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    object-fit: cover;
+      
+    scroll-snap-align: center;
+  }
+  .slider-container {
+    display: flex;
+    width: 100%;
+    height: 60vh;
+    overflow-x: scroll;
+  
+    scroll-snap-type: x mandatory;
+  }
+  .tarjetasjuntas {
+    width: 60%;
+    height: 60vh;
+    justify-content: center;
+  }
+  .article{
+    display: inline-block;
+    border: 2px solid yellow;
+    width: 59%;
+  }
+  .aside{
+    border: 2px solid salmon;
+    display: inline-block;
+    width: 40%;
+    margin-left: auto;
+    vertical-align: top;
+  }
+  .division{
+    display: flex;
+    width: 250px;
+    height: 250px;
+  }
+  .derecha{
+    align:center;
+  }
