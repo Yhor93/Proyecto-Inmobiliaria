@@ -4,10 +4,10 @@
         <img src="{{'assets/images/Logo.jpg'}}" height="70" style="vertical-align: middle;"></a>
       <a routerLink="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li ><a routerLink="/administracion/mision">Mision</a></li>
-        <li ><a routerLink="/administracion/vision">Vision</a></li>
+        <li *ngIf="sesionActiva"><a routerLink="/administracion/mision">Mision</a></li>
+        <li *ngIf="sesionActiva"><a routerLink="/administracion/vision">Vision</a></li>
         <li *ngIf="!sesionActiva"><a routerLink="/administracion/registrarse">Registrarse</a></li>
-        <li *ngIf="sesionActiva"><a routerLink="/administracion/crear-inmueble">Inmuebles</a></li>
+        <li *ngIf="!sesionActiva"><a routerLink="/administracion/buscar-inmueble">Inmuebles</a></li>        
         <li *ngIf="sesionActiva"><a routerLink="/seguridad/cambio-clave">Cambiar Clave</a></li>
         <li *ngIf="sesionActiva"><a routerLink="/seguridad/logout">Cerrar Sesion</a></li>
         <li *ngIf="!sesionActiva"><a routerLink="/seguridad/login">Iniciar Sesion</a></li>
@@ -16,10 +16,10 @@
   </nav>
 
   <ul class="sidenav" id="mobile-demo">
-      <li><a routerLink="/administracion/mision">Mision</a></li>
-      <li ><a routerLink="/administracion/vision">Vision</a></li>
-      <li *ngIf="!sesionActiva"><a routerLink="/administracion/crear-usuario">Registrarse</a></li>
-      <li *ngIf="sesionActiva"><a routerLink="/administracion/inmuebles">Inmuebles</a></li>
+    <li *ngIf="sesionActiva"><a routerLink="/administracion/mision">Mision</a></li>
+      <li *ngIf="sesionActiva"><a routerLink="/administracion/vision">Vision</a></li>
+      <li *ngIf="!sesionActiva"><a routerLink="/administracion/registrarse">Registrarse</a></li>
+      <li *ngIf="sesionActiva"><a routerLink="/administracion/buscar-inmueble">Inmuebles</a></li>      
       <li *ngIf="sesionActiva"><a routerLink="/seguridad/cambio-clave">Cambiar Clave</a></li>
       <li *ngIf="sesionActiva"><a routerLink="/seguridad/logout">Cerrar Sesion</a></li>
       <li *ngIf="!sesionActiva"><a routerLink="/seguridad/login">Iniciar Sesion</a></li>

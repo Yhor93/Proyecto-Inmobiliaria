@@ -19,6 +19,7 @@ export class SeguridadService {
     private Http: HttpClient,
     private servicioLocalStorage: LocalStorageService
     ){ 
+      this.verificarSesionActiva();
   }
 
   Logueo(credenciales:credencialesUsuarioModel):Observable<any>{
