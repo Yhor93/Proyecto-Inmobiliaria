@@ -39,30 +39,27 @@ export class CrearAsesorComponent implements OnInit {
   }
   formularioAsesor() {
     this.formularioRegistroAsesor=this.fb.group({
-      id:["6379b62ec3a0870554ef4843"],
       nombre:["",Validators.required],
       email:["",Validators.required],
       cedula:["",Validators.required],
       ciudad:["",Validators.required],
       celular:["",Validators.required],
-      roles:["asesor"],
-      perfil:["asesor"]
+      roles:["asesor"]
     });
   }
   
   registroAsesor(){
-       let asesor:DatosUserModel = new DatosUserModel();
-       asesor.id=this.formularioRegistroAsesor.controls['id'].value;
-       asesor.nombres=this.formularioRegistroAsesor.controls['nombre'].value;
-       asesor.cedula=this.formularioRegistroAsesor.controls['cedula'].value;
-       asesor.celular=this.formularioRegistroAsesor.controls['celular'].value;
-       asesor.email=this.formularioRegistroAsesor.controls['email'].value;
-       asesor.ciudad=this.formularioRegistroAsesor.controls['ciudad'].value;
-       asesor.roles=this.formularioRegistroAsesor.controls['roles'].value;
-       console.log(asesor);
-       this.servicioUsuario.registrarAsesor(asesor).subscribe({
-        next: (datos:DatosUserModel)=>{
-          generarVentanaModal("Asesor Registrado Exitosamente !!");
+      let usuario:DatosAsesorModel = new DatosAsesorModel();
+       usuario.nombres=this.formularioRegistroAsesor.controls['nombre'].value;
+       usuario.cedula=this.formularioRegistroAsesor.controls['cedula'].value;
+       usuario.celular=this.formularioRegistroAsesor.controls['celular'].value;
+       usuario.email=this.formularioRegistroAsesor.controls['email'].value;
+       usuario.ciudad=this.formularioRegistroAsesor.controls['ciudad'].value;
+       usuario.roles=this.formularioRegistroAsesor.controls['roles'].value;
+       console.log(usuario);
+       this.servicioUsuario.registrarAsesor(usuario).subscribe({
+        next: (datos:DatosAsesorModel)=>{
+          generarVentanaModal("Asesor Registrado!, la clave de acceso sera enviada al email");
         },
         error: (e)=>console.log(e)
        });

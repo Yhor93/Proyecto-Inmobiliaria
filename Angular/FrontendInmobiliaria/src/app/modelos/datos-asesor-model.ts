@@ -5,6 +5,6 @@ export class DatosAsesorModel{
     cedula?: string;
     ciudad?: string;
     celular?: string;
-    roles?: [];
+    roles?: string;
     perfil?: string;
 }
