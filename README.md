@@ -36,6 +36,7 @@ npm install jsonwebtoken <br>
 npm i @loopback/authentication <br>
 npm i @loopback/security <br>
 npm i parse-bearer-token <br>
+npm start <br>
 
 =============== COMANDOS UTILIZADOS  MICRO SERVICIO SERVIDOR PYTHON =================== <br>
 conda install -c  conda-forge twilio <br>
