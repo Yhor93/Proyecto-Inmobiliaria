@@ -1,0 +1,17 @@
+<h2>Apartamentos</h2>
+<div class="row">
+    <div *ngFor="let p of listainmuebles"class="col s3">
+        <a routerLink="/inicio">
+            <img class="foto" src="{{p.fotografias}}">
+        </a>
+        {{p.tipoInmueble}}
+        {{p.tipoOferta}} <br>
+        <p class="valor">$ {{p.valor}} </p>
+        {{p.departamento}}
+        {{p.cuidad}} <br> <br>
+        {{p.enlaceVideo}}
+        <div class="valor">
+            <a routerLink="/inicio">Informaciòn</a>
+        </div>
+    </div>
+</div>
