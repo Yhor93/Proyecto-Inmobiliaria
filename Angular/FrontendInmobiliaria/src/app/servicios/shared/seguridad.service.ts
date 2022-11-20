@@ -32,7 +32,6 @@ export class SeguridadService {
       
   }
 
- 
   verificarSesionActiva(){
     let info = this.servicioLocalStorage.obtenerSesionInfo();
     if (info) {
@@ -56,4 +55,5 @@ export class SeguridadService {
     return this.Http.get<RolesModel[]>(`${this.url}/roles`);
  }
   
+
 }

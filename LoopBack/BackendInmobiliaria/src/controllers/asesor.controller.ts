@@ -17,6 +17,7 @@ import {authenticate} from '@loopback/authentication';
 import {service} from '@loopback/core';
 import {AsesorRepository, UsuarioRepository} from '../repositories';
 import {AutenticacionService} from '../services';
+import { keys } from '../configuracion/keys';
 const fetch = require('node-fetch');
 
 @authenticate("administrador")
@@ -61,7 +62,7 @@ export class AsesorController {
     let contenido = `Hola, ${as.nombres}, su nombre de usuario es: ${as.email}
     y su contraseña de acceso a nuestra app es: ${password}`;
 
-    fetch(`http://localhost:5000/e-mail?correo_destino=${destino}&asunto=${asunto}&contenido=${contenido}`)
+    fetch(`${keys.urlNotificaciones}/e-mail?correo_destino=${destino}&asunto=${asunto}&contenido=${contenido}`)
       .then((data: any) => {
         console.log(data);
       });

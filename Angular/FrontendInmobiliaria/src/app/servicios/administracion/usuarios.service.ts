@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { DatosSesionModel } from 'src/app/modelos/datos-sesion.models';
 import { DatosUserModel } from 'src/app/modelos/datos-user.model';
+import { DatosAsesorModel } from 'src/app/modelos/datos-asesor-model';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,19 @@ export class UsuariosService {
       ciudad: usuario.ciudad
     },{
     headers: new HttpHeaders({})
+    });
+  }
+
+  registrarAsesor(asesor:DatosUserModel):Observable<DatosUserModel>{
+    return this.Http.post<DatosUserModel>(`${this.url}/RegistroAsesor`,{
+      id: asesor.id,
+      nombres: asesor.nombres,
+      email: asesor.email,
+      cedula: asesor.cedula,
+      ciudad: asesor.ciudad,
+      celular: asesor.celular
+    },{
+      headers: new HttpHeaders({})
     });
   }
 }
