@@ -14,6 +14,9 @@ import { ValidadorSesionGuard } from 'src/app/guardianes/validador-sesion.guard'
 import { InvalidarSesionGuard } from 'src/app/guardianes/invalidar-sesion.guard';
 import { CrearAsesorComponent } from './usuarios/crear-asesor/crear-asesor.component';
 import { VistaInmueblesComponent } from './informacion/vista-inmuebles/vista-inmuebles.component';
+import { CasasComponent } from './inmuebles/casas/casas.component';
+import { ApartamentosComponent } from './inmuebles/apartamentos/apartamentos.component';
+import { LocalesComercialesComponent } from './inmuebles/locales-comerciales/locales-comerciales.component';
 
 const routes: Routes = [
   {
@@ -71,6 +74,18 @@ const routes: Routes = [
   {
     path: 'vista-inmuebles',
     component: VistaInmueblesComponent
+  },
+  {
+    path: 'casas',
+    component: CasasComponent
+  },
+  {
+    path: 'apartamentos',
+    component: ApartamentosComponent
+  },
+  {
+    path: 'locales-comerciales',
+    component: LocalesComercialesComponent
   }
 ];
 

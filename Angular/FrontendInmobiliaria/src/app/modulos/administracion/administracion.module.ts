@@ -15,6 +15,9 @@ import { VisionComponent } from './informacion/vision/vision.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VistaInmueblesComponent } from './informacion/vista-inmuebles/vista-inmuebles.component';
 import { CrearAsesorComponent } from './usuarios/crear-asesor/crear-asesor.component';
+import { CasasComponent } from './inmuebles/casas/casas.component';
+import { ApartamentosComponent } from './inmuebles/apartamentos/apartamentos.component';
+import { LocalesComercialesComponent } from './inmuebles/locales-comerciales/locales-comerciales.component';
 
 
 @NgModule({
@@ -30,7 +33,10 @@ import { CrearAsesorComponent } from './usuarios/crear-asesor/crear-asesor.compo
     MisionComponent,
     VisionComponent,
     VistaInmueblesComponent,
-    CrearAsesorComponent
+    CrearAsesorComponent,
+    CasasComponent,
+    ApartamentosComponent,
+    LocalesComercialesComponent
   ],
   imports: [
     CommonModule,
