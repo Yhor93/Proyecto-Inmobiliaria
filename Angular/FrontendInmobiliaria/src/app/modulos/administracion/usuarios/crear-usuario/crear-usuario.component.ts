@@ -6,6 +6,7 @@ import { UsuariosService } from 'src/app/servicios/administracion/usuarios.servi
 import { SeguridadService } from 'src/app/servicios/shared/seguridad.service';
 declare const generarVentanaModal:any;
 
+
 @Component({
   selector: 'app-crear-usuario',
   templateUrl: './crear-usuario.component.html',
@@ -34,7 +35,8 @@ export class CrearUsuarioComponent implements OnInit {
       celular:["",Validators.required],
       email:["",Validators.required],
       ciudad:["",Validators.required],
-      roles:["usuario"]
+      roles:["usuario"],
+      
     });
   }
  //Funcion
