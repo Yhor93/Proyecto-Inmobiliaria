@@ -1,0 +1,19 @@
+.row {
+    
+    display: flex;
+    align-items: left;
+    justify-content:baseline;
+}
+.valor{
+    font-weight: bold;
+}
+.col s3 {
+    margin: 50px;
+}
+.foto{
+    width: 100%;
+    height: auto;
+}
+h2{
+    text-align: center;
+}
