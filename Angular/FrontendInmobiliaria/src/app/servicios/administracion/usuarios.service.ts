@@ -31,9 +31,8 @@ export class UsuariosService {
     });
   }
 
-  registrarAsesor(asesor:DatosUserModel):Observable<DatosUserModel>{
-    return this.Http.post<DatosUserModel>(`${this.url}/RegistroAsesor`,{
-      id: asesor.id,
+  registrarAsesor(asesor:DatosAsesorModel):Observable<DatosAsesorModel>{
+    return this.Http.post<DatosAsesorModel>(`${this.url}/RegistroUsuarios`,{
       nombres: asesor.nombres,
       email: asesor.email,
       cedula: asesor.cedula,
