@@ -1,22 +1,38 @@
 <br>
-    
 
-<tr *ngFor="let p of listainmuebles">
-    
-    
-    <div class="row">
-        <div class="col s3">
-            <img src="{{p.fotografias}}">
+
+
+<!--Listado de Inmuebles parte Administrativa -->
+
+<br/>
+<button routerLink="../crear-inmueble" class= " btn btn-success" >Registrar inmuebles</button>
+<br/>
+<table>
+    <thead>
+      <tr>
+        <th>Foto</th>
+        <th>Detalle</th>
+        <th>Inmueble</th>
+        <th>Oferta</th>
+        <th>Valor</th>
+        <th>Dpto</th>
+        <th>Ciudad</th>        
+        <th>Editar</th>
+        <th>Eliminar</th>
+      </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let p of listainmuebles">
+            <img img class="img" src="{{p.fotografias}}">
+            <th class="ali">{{p.enlaceVideo}}</th>
             <th>{{p.tipoInmueble}}</th>
             <th>{{p.tipoOferta}}</th>
-            <h5>{{p.valor}}</h5>
+            <th>{{p.valor}}</th>
             <th>{{p.departamento}}</th>
-            <th>{{p.cuidad}}</th>           
-             
-              
-        </div>
-            
-    </div>
-         
-</tr>
-
+            <th>{{p.cuidad}}</th>            
+            <td> <button routerLink="../editar-inmueble/{{p.id}}" class= " btn btn-success" >Editar</button></td>
+            <td> <button routerLink="../eliminar-inmueble/{{p.id}}" class= " btn btn-success red" >Eliminar</button></td>
+        </tr>
+    </tbody>
+  </table>

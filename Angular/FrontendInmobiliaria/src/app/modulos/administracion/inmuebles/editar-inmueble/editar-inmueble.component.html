@@ -1,1 +1,97 @@
-<p>editar-inmueble works!</p>
+<br><br>
+<div class="row">
+    <div class="col s12 l4 offset-l4">
+        <div class="card grey lighten-3">
+            <div class="card-content">
+                <h4 class="card-title center-align">Editar Inmuebles</h4>
+                <form [formGroup]="finmueble" (ngsubmit)="EdicionFormulario()">
+                    <div class="row">
+                        <input formControlName="id" type="hidden"> 
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">leaderboard</i>
+                            <input formControlName="tipoInmueble" type="text">
+                                       
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">paid</i>
+                            <input formControlName="valor" type="text">
+                            
+                        </div>
+                    </div>
+                
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">leaderboard</i>
+                            <input formControlName="fotografias" type="text">            
+                        </div>
+                    </div>
+                
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">leaderboard</i>
+                            <input formControlName="tipoOferta" type="text">            
+                        </div>
+                    </div>
+                
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">leaderboard</i>
+                            <input formControlName="encargado" type="text">            
+                        </div>
+                    </div>
+                
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">leaderboard</i>
+                            <input formControlName="contactoEncargado" type="text">            
+                        </div>
+                    </div>
+                
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">leaderboard</i>
+                            <input formControlName="departamento" type="text">            
+                        </div>
+                    </div>
+                
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">leaderboard</i>
+                            <input formControlName="cuidad" type="text">            
+                        </div>
+                    </div>
+                
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">leaderboard</i>
+                            <input formControlName="direccion" type="text">            
+                        </div>
+                    </div>
+                
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">leaderboard</i>
+                            <input formControlName="enlaceVideo" type="text">             
+                        </div>
+                    </div>
+
+                    <div class="row center-align">
+                        <button (click)="editar()" class="btn waves-effect waves-light" type="submit" name="action"> Editar Inmueble            
+                            <i class="material-icons rigth">send</i>
+                        </button>
+                    </div>
+
+                    
+
+                    <div class="row center-align">
+                        <label for="tab-1">Inmobiliaria Hogar Colombia</label>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br>

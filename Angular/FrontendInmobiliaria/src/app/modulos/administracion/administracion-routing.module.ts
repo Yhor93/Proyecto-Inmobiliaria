@@ -45,12 +45,12 @@ const routes: Routes = [
     canActivate:[ValidadorSesionGuard] 
   },
   {
-    path: 'editar-inmueble',
+    path: 'editar-inmueble/:id',
     component: EditarInmuebleComponent,
     canActivate:[ValidadorSesionGuard] 
   },
   {
-    path: 'eliminar-inmueble',
+    path: 'eliminar-inmueble/:id',
     component: EliminarInmuebleComponent,
     canActivate:[ValidadorSesionGuard] 
   },
