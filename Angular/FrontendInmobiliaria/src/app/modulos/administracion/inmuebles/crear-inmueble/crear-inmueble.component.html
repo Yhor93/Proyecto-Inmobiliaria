@@ -1,1 +1,100 @@
-<p>crear-inmueble works!</p>
+<br><br>
+<div class="row">
+    <div class="col s12 6">
+        <div class="grey lighten-3">
+            <div class="container">
+                <br>
+                <h3 class="card-title center-align">Registro de Inmueble</h3>
+                <form [formGroup]="finmueble" (ngsubmit)="construccionFormulario()">
+
+                    <div class="group">
+                        <div class="col s6">
+                        <label>Tipo de inmueble</label>
+                        <select class="browser-default">
+                          <option value="" disabled selected>...</option>
+                          <option value="0">Casa</option>
+                          <option value="1">Apartamento</option>
+                          <option value="2">Local Comercial</option>
+                        </select>
+                    </div>
+                        
+                    </div>
+                    <div class="group">
+                        <div class="col s6">
+                        <label>Oferta</label>
+                        <select class="browser-default">
+                          <option value="" disabled selected>...</option>
+                          <option value="0">Alquiler</option>
+                          <option value="1">Venta</option>
+                        </select>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">location_city</i>
+                            <label for="nombre" class="label">Descripción del inmueble</label>
+                            <textarea formControlName="nombre"  id="nombre" type="text" class="validate">
+                            </textarea>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">attach_money</i>
+                            <label for="nombre" class="label">Valor($)</label>
+                            <input formControlName="nombre"  id="cedula" type="text" class="validate">
+                        </div>
+                    </div>
+                    <div class="group">
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">location_on</i>
+                            <label for="nombre" class="label">Dirección</label>
+                            <input formControlName="nombre"  id="cedula" type="text" class="validate">
+                        </div>
+                    </div>
+                    <div class="group">
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">domain</i>
+                            <label for="nombre" class="label">Ciudad</label>
+                            <input formControlName="nombre"  id="cedula" type="text" class="validate">
+                        </div>
+                    </div>
+                    <div class="group">
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">texture</i>
+                            <label for="nombre" class="label">Departamento</label>
+                            <input formControlName="nombre"  id="cedula" type="text" class="validate">
+                        </div>
+                    </div>
+                    <div class="group">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">photo</i>
+                            <label class="label">Fotos</label>
+                            <div class="text-aling center">
+                            <input formControlName="nombre"  type="file" placeholder="fotos">
+                            </div>
+                         
+                        </div>
+                    </div>
+
+
+
+
+                   
+
+                    <div class="row center-align">
+                        <button (click)="crear()"   class="btn waves-effect waves-light" 
+                        type="submit" name="action">Registrarse <i class="material-icons rigth">how_to_reg</i></button>
+                            &nbsp;&nbsp;
+                        <button routerLink="/inicio" class="btn waves-effect waves-light" type="submit"
+                            name="action">Cancelar<i class="material-icons rigth">cancel</i></button>
+                    </div>
+
+                    <div class="row center-align">
+                        <label for="tab-1">Inmobiliaria Hogar Colombia</label>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br> 
