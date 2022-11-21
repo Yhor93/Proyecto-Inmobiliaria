@@ -1,3 +1,4 @@
+import { DataSourceDefaults } from '@loopback/boot';
 import {service} from '@loopback/core';
 import {
   Count,
@@ -14,6 +15,7 @@ import {
 } from '@loopback/rest';
 import {keys} from '../configuracion/keys';
 import {Credenciales, Usuario} from '../models';
+import { CambioPass } from '../models/cambio-pass.model';
 import {AdministradorRepository, AsesorRepository, ClienteRepository, UsuarioRepository} from '../repositories';
 import {AutenticacionService} from '../services';
 const fetch = require('node-fetch');
@@ -207,4 +209,86 @@ export class UsuarioController {
     }
 
   }
+
+  @post('/RecuperarPass/{email}')
+  @response(200, {
+    description:"Recuperación contraseña del usuario"
+  })
+  async recuperar(
+    @requestBody () email:string
+  ):Promise<Boolean>{
+    let user=await this.usuarioRepository.findOne({
+    where:{
+      email: email
+    }
+  });
+  if (user){
+    let clave= this.servicioAutenticacion.GenerarPassword();
+    console.log("la nueva clave es " + clave);
+    let clavecifrada= this.servicioAutenticacion.EncriptarPassword(clave);
+    user.clave=clavecifrada;
+    await this.usuarioRepository.updateById(user.id, user);
+
+    /* NOTIFICAR EL CAMBIO DE CONTRASEÑA AL USUARIO*/
+    let destino = user.email;
+    let asunto = "Recuperación de clave de la APP Inmobiliaria Hogar Colombia"
+    let contenido = `Hola, ${user.nombres}, su nueva contraseña es , ${clave}`;
+
+    fetch(`${keys.urlNotificaciones}/email?email_destino=${destino}&asunto=${asunto}&mensaje=${contenido}`)
+    .then((data:any)=>{
+      console.log(data)
+    });
+    console.log("Se ha enviado la nueva contraseña al usuario");
+    return true;
+
+  }else{
+    console.log("El usuario no fue encontrado");
+    return false;
+  }
+  }
+
+  @post('/ModificarPass')
+  @response(200, {
+    description: "Modificar clave de parte del usuario"
+  })
+  async modificar(
+    @requestBody () datos: CambioPass
+  ):Promise<Boolean>{
+    let user= await this.usuarioRepository.findOne({
+      where:{
+        clave:this.servicioAutenticacion.EncriptarPassword(datos.cActual)
+      }
+    });
+    if (user) {
+      if (datos.cNueva==datos.cValidada) {
+        user.clave=this.servicioAutenticacion.EncriptarPassword(datos.cNueva);
+        await this.usuarioRepository.updateById(user.id, user);
+        /*Notificar al usuario el cambio de contraseña*/
+        let destino = user.email;
+        let asunto = "Cambio de clave de la APP Inmobiliaria Hogar Colombia"
+        let contenido = `Hola, ${user.nombres}, usted cambió su contraseña, esta contraseña es , ${datos.cNueva}`;
+
+        fetch(`${keys.urlNotificaciones}/email?email_destino=${destino}&asunto=${asunto}&mensaje=${contenido}`)
+        .then((data:any)=>{
+          console.log(data)
+        });
+        console.log("Se avisó del cambio de contraseña que realizó el mismo usuario");
+        return true;
+
+
+
+      } else {
+        console.log("las contraseñas no coinciden");
+        return false;
+      }
+      
+    } else {
+      console.log("El usuario no existe en la BD");
+      return false;
+      
+    }
+  }
+
+
+
 }
