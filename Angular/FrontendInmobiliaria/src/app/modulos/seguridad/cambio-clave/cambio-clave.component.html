@@ -4,34 +4,35 @@
         <div class="card grey lighten-3">
             <div class="card-content">
                 <h4 class="card-title center-align">Cambiar Clave</h4>
-                <form>
+                <form [formGroup]="fCambioC" (ngSubmit)="formCambioclave()">
                     <div class="group">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">lock_open</i>
-                            <label for="user" class="label">Clave Actual</label>
-                            <input id="user" type="text" class="input">
+                            <label for="claveActual" class="label">Clave Actual</label>
+                            <input formControlName="claveActual" id="claveActual" type="text" class="input">
                         </div>
                     </div>
 
                     <div class="group">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">lock_reset</i>
-                            <label for="pass" class="label">Nueva Clave</label>
-                            <input id="pass" type="text" class="input">
+                            <label for="nuevaClave" class="label">Nueva Clave</label>
+                            <input formControlName="nuevaClave" id="nuevaClave" type="text" class="input">
                         </div>
                     </div>
 
                     <div class="group">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">lock_clock</i>
-                            <label for="pass" class="label">Confirmar Nueva Clave</label>
-                            <input id="pass" type="text" class="input">
+                            <label for="confirmarClave" class="label">Confirmar Nueva Clave</label>
+                            <input formControlName="confirmarClave" id="confirmarClave" type="text" class="input">
                         </div>
                     </div>
 
                     <div class="row center-align">
-                        <button routerLink="/inicio" class="btn waves-effect waves-light" type="submit"
-                            name="action">Confirmar Cambio <i class="material-icons rigth">check_circle</i>
+                        <button routerLink="/inicio" [disabled]="!fCambioC.valid" (click)="cambioC()"
+                        class="btn waves-effect waves-light" type="submit" name="action">Confirmar Cambio 
+                        <i class="material-icons rigth">check_circle</i>
                         </button>
                     </div>
 

@@ -1,3 +1,6 @@
+body{
+  background: -webkit-radial-gradient(#143dc1, #8edeb2);
+}
 .texto{
     text-align: center;
 }

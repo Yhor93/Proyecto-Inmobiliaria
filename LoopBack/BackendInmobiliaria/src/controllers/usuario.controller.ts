@@ -228,13 +228,12 @@ export class UsuarioController {
     let clavecifrada= this.servicioAutenticacion.EncriptarPassword(clave);
     user.clave=clavecifrada;
     await this.usuarioRepository.updateById(user.id, user);
-
     /* NOTIFICAR EL CAMBIO DE CONTRASEÑA AL USUARIO*/
     let destino = user.email;
     let asunto = "Recuperación de clave de la APP Inmobiliaria Hogar Colombia"
-    let contenido = `Hola, ${user.nombres}, su nueva contraseña es , ${clave}`;
+    let mensaje = `Hola, ${user.nombres}, su nueva contraseña es , ${clave}`;
 
-    fetch(`${keys.urlNotificaciones}/email?email_destino=${destino}&asunto=${asunto}&mensaje=${contenido}`)
+    fetch(`${keys.urlNotificaciones}/email?destino=${destino}&asunto=${asunto}&mensaje=${mensaje}`)
     .then((data:any)=>{
       console.log(data)
     });
@@ -266,9 +265,9 @@ export class UsuarioController {
         /*Notificar al usuario el cambio de contraseña*/
         let destino = user.email;
         let asunto = "Cambio de clave de la APP Inmobiliaria Hogar Colombia"
-        let contenido = `Hola, ${user.nombres}, usted cambió su contraseña, esta contraseña es , ${datos.cNueva}`;
+        let mensaje = `Hola, ${user.nombres}, usted cambió su contraseña, esta contraseña es , ${datos.cNueva}`;
 
-        fetch(`${keys.urlNotificaciones}/email?email_destino=${destino}&asunto=${asunto}&mensaje=${contenido}`)
+        fetch(`${keys.urlNotificaciones}/email?destino=${destino}&asunto=${asunto}&mensaje=${mensaje}`)
         .then((data:any)=>{
           console.log(data)
         });
