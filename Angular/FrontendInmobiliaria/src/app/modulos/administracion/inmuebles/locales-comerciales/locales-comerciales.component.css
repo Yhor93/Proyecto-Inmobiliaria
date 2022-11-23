@@ -1,5 +1,4 @@
 .row {
-    
     display: flex;
     align-items: left;
     justify-content:baseline;
@@ -11,9 +10,15 @@
     margin: 50px;
 }
 img.foto{
-    width: 200px;
-    height: 100px;
+    width: 300px;
+    height: 200px;
 }
 h2{
     text-align: center;
+}
+
+.descripcion{
+    text-align: justify;
+    text-justify: inter-word
+    
 }

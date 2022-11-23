@@ -15,7 +15,6 @@ const routes: Routes = [
 {
   path: 'recuperar-clave', 
   component: RecuperarClaveComponent,
-  canActivate:[ValidadorSesionGuard] 
 },
 {
   path: 'cambio-clave', 

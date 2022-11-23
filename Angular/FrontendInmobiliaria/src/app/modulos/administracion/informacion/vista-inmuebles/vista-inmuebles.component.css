@@ -22,8 +22,6 @@
     border-radius: 8px;
     width: 100%;
     border-color: #fff;
-    
-    
 }
 .textarea1{
     background-color:  #7986cb;
@@ -32,8 +30,16 @@
 }
 .label1{
     text-align: center;
+    color: black;
+    font-family:  Baskerville;
 }
 input:hover{
-    background-color:#bbdefb;
+    background-color:#18b858;
     cursor:pointer;
 }
+.section:hover{
+    background-color: #18b858;
+    cursor:pointer;
+    border-radius: 18px;
+}
+

@@ -5,7 +5,7 @@ export class DatosUserModel{
     celular?: string;
     email?: string;
     ciudad?: string;
-    roles?: [];
-    perfil?: string;
+    roles?: ['Administrador','Asesor','Cliente'];
+    perfil?: ['Administrador','Asesor','Cliente'];
 
 }

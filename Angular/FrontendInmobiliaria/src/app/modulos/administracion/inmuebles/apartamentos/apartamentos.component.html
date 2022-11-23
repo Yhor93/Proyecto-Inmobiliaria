@@ -1,6 +1,25 @@
 <h2>Apartamentos</h2>
 <div class="row">
-    <div *ngFor="let p of listainmuebles"class="col s3">
+    <div *ngFor="let p of listainmuebles" >
+        <div *ngFor="let in of p.tipoInmueble" >
+            <div *ngIf="in=='Apartamento'" class="col s12">
+                <a routerLink="/inicio"><img class="foto" src="{{p.fotografias}}"></a><br>
+                {{p.tipoOferta}}<br>
+                <p class="valor">${{p.valor}}</p>
+                <i class="material-icons rigth">location_on</i>
+                {{p.cuidad}} 
+                {{p.departamento}}<br><br>
+                {{p.enlaceVideo}}<br><br>
+                <button (click)="mensaje()" class="btn waves-effect waves-light blue" type="submit" 
+                name="action"> Solicitar <i class="material-icons rigth">info</i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  <!-- <div *ngFor="let p of listainmuebles"class="col s3">
         <a routerLink="/inicio">
             <img class="foto" src="{{p.fotografias}}">
         </a>
@@ -13,5 +32,4 @@
         <div class="valor">
             <a routerLink="/inicio">Informaciòn</a>
         </div>
-    </div>
-</div>
+    </div> -->
