@@ -46,4 +46,5 @@ conda install -c conda-forge sendgrid <br>
 npm install -g @angular/cli  <br>
 npm install materialize-css@next  <br>
 npm i cryptojs  <br>
+npm install ngx-captcha  <br>
 ng s  <br>
