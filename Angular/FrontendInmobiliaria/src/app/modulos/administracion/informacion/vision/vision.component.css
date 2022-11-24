@@ -17,9 +17,12 @@ p{
     color: #000000;
 }
 .texto-borde {
-    -webkit-text-stroke: 4px rgb(6, 8, 112);
+    -webkit-text-stroke: 4px rgb(202, 202, 219);
     color: transparent;
 }
 .box {
     border: rgb(6, 8, 112) 8px outset;
+}
+body{
+    background: -webkit-radial-gradient(#3652ae, #698877);
 }

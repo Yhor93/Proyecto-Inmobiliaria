@@ -3,7 +3,7 @@
   padding: 10;
 } 
 body{
-  background: -webkit-radial-gradient(#143dc1, #8edeb2);
+  background: -webkit-radial-gradient(#4fae57, #c4c1dc);
 }
 .texto{
   text-align: center;
@@ -20,7 +20,6 @@ font-style:italic;
 font-weight:bold;
 font-family:'Times New Roman','Verdana','Monaco',sans-serif;
 color: #174680;
-background-color:transparent;
 }
 h2{
   font-size: 45px;
@@ -30,8 +29,7 @@ h2{
   font-family:'Times New Roman','Verdana','Monaco',sans-serif;
   color: #174680;
   background-color:transparent;
-  
-  }
+}
 h3{
 font-size: 35px;
 text-align: center;

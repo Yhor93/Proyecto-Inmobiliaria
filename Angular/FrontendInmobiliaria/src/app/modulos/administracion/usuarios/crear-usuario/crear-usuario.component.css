@@ -24,6 +24,6 @@ a{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: #3A3F6B;
 }
-.box {
-    border: rgb(6, 8, 112) 8px outset;
-}
+body {
+    background: -webkit-radial-gradient(#15931f, #06134a);
+  }

@@ -1,0 +1,11 @@
+body {
+  background: -webkit-radial-gradient(#5a72be, #e77373);
+}
+h2 {
+  font-size: 45px;
+  text-align: center;
+  font-style: oblique;
+  font-weight: bold;
+  font-family: "Times New Roman", "Verdana", "Monaco", sans-serif;
+  color: #143053;
+}

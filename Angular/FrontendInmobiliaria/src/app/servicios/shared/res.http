@@ -1,0 +1,7 @@
+### Post
+POST http://localhost:3000/RecuperarPass
+Content-Type: application/json
+
+{
+    "email": "teams4net@gmail.com" 
+}

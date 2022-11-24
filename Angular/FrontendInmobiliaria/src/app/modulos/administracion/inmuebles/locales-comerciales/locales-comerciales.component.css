@@ -27,3 +27,6 @@ h2{
     text-justify: inter-word
     
 }
+body{
+    background: -webkit-radial-gradient(#bc9e99, #6866da);
+}

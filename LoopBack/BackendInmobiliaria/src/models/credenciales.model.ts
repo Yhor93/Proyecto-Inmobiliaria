@@ -20,8 +20,11 @@ export class Credenciales extends Model {
   }
 }
 
+
 export interface CredencialesRelations {
   // describe navigational properties here
 }
 
 export type CredencialesWithRelations = Credenciales & CredencialesRelations;
+
+

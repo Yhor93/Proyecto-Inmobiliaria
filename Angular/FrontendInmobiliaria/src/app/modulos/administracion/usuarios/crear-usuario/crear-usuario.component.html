@@ -1,64 +1,68 @@
 <br><br>
-<div class="row">
-    <div class="col s12 l5 offset-l4">
-        <div class="card grey lighten-3">
-            <div class="card-content">
-                <h4 >Registro de Usuario</h4>
-                <form [formGroup]="formularioRegistro" (ngsubmit)="formulario()" class="Registro">
-                    <div class="group">
-                        <div class="input-field col s12">
-                            <i class="material-icons prefix">drive_file_rename_outline</i>
-                            <label for="nombre" class="label">Digite su nombre completo</label>
-                            <input formControlName="nombre"  id="nombre" type="text" class="validate">
-                        </div>
-                    </div>
 
-                    <div class="group">
-                        <div class="input-field col s12">
-                            <i class="material-icons prefix">badge</i>
-                            <label for="cedula" class="label">Digite su cedula</label>
-                            <input formControlName="cedula"  id="cedula" type="text" class="validate">
+<body>
+    <div class="row">
+        <div class="col s12 l5 offset-l4">
+            <div class="card grey lighten-3">
+                <div class="card-content">
+                    <h4>Registro de Usuario</h4>
+                    <form [formGroup]="formularioRegistro" (ngsubmit)="formulario()" class="Registro">
+                        <div class="group">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">drive_file_rename_outline</i>
+                                <label for="nombre" class="label">Digite su nombre completo</label>
+                                <input formControlName="nombre" id="nombre" type="text" class="validate">
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="group">
-                        <div class="input-field col s12">
-                            <i class="material-icons prefix">contact_phone</i>
-                            <label for="celular" class="label">Digite su celular</label>
-                            <input input formControlName="celular"  id="celular" type="text" class="validate">
+                        <div class="group">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">badge</i>
+                                <label for="cedula" class="label">Digite su cedula</label>
+                                <input formControlName="cedula" id="cedula" type="text" class="validate">
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="group">
-                        <div class="input-field col s12">
-                            <i class="material-icons prefix">local_post_office</i>
-                            <label for="email" class="label">Digite su email</label>
-                            <input input formControlName="email"  id="email" type="text" class="validate">
+                        <div class="group">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">contact_phone</i>
+                                <label for="celular" class="label">Digite su celular</label>
+                                <input input formControlName="celular" id="celular" type="text" class="validate">
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="group">
-                        <div class="input-field col s12">
-                            <i class="material-icons prefix">location_city</i>
-                            <label for="ciudad" class="label">Digite su ciudad</label>
-                            <input input formControlName="ciudad"  id="ciudad" type="text" class="validate">
+                        <div class="group">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">local_post_office</i>
+                                <label for="email" class="label">Digite su email</label>
+                                <input input formControlName="email" id="email" type="text" class="validate">
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="row center-align">
-                        <button routerLink="/inicio" [disabled]="!formularioRegistro.valid"  (click)="registroUsuarios()"  class="btn waves-effect waves-light" 
-                        type="submit" name="action">Registrarse <i class="material-icons rigth">how_to_reg</i></button>
+                        <div class="group">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">location_city</i>
+                                <label for="ciudad" class="label">Digite su ciudad</label>
+                                <input input formControlName="ciudad" id="ciudad" type="text" class="validate">
+                            </div>
+                        </div>
+
+                        <div class="row center-align">
+                            <button routerLink="/inicio" [disabled]="!formularioRegistro.valid"
+                                (click)="registroUsuarios()" class="btn waves-effect waves-light" type="submit"
+                                name="action">Registrarse <i class="material-icons rigth">how_to_reg</i></button>
                             &nbsp;&nbsp;
-                        <button routerLink="/inicio" class="btn waves-effect waves-light" type="submit"
-                            name="action">Cancelar<i class="material-icons rigth">cancel</i></button>
-                    </div>
+                            <button routerLink="/inicio" class="btn waves-effect waves-light" type="submit"
+                                name="action">Cancelar<i class="material-icons rigth">cancel</i></button>
+                        </div>
 
-                    <div class="row center-align">
-                        <label for="tab-1">Inmobiliaria Hogar Colombia</label>
-                    </div>
-                </form>
+                        <div class="row center-align">
+                            <label for="tab-1">Inmobiliaria Hogar Colombia</label>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</body>
 <br><br>

@@ -7,6 +7,7 @@ import { DatosSesionModel } from 'src/app/modelos/datos-sesion.models';
 import { RolesModel } from 'src/app/modelos/roles.model';
 import { LocalStorageService } from './local-storage.service';
 
+
 @Injectable({
   providedIn: 'root',
 })
@@ -59,17 +60,30 @@ export class SeguridadService {
   }
 
   recuperarClave(email: string): Observable<boolean> {
+    console.log(`${this.url}/RecuperarPass`);
     console.log(email);
-    return this.Http.post<boolean>(`${this.url}/RecuperarPass/${email}`,
+    return this.Http.post<boolean>(`${this.url}/RecuperarPass`,
       {
         email: email
+      },
+      {
+        headers: new HttpHeaders({}),
       }
+
     );
   }
 
-  // cambioClave():Observable<CambioClaveModel[]>{{
-  //   return this.Http.post<CambioClaveModel[]>(`${this.url}/ModificarPass`);
-  // }
-  
-  
+   cambioClave(data: CambioClaveModel):Observable<boolean>{{
+    return this.Http.post<boolean>(`${this.url}/ModificarPass`,
+    {
+      cActual: data.claveActual,
+      cNueva: data.nuevaClave,
+      cValidada: data.cValidada,
+      email: data.email
+    },
+    {
+      headers: new HttpHeaders({}),
+    });    
+  }
+  } 
 }

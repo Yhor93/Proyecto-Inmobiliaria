@@ -1,4 +1,3 @@
-import { DataSourceDefaults } from '@loopback/boot';
 import {service} from '@loopback/core';
 import {
   Count,
@@ -13,9 +12,10 @@ import {
   getModelSchemaRef, HttpErrors, param, patch, post, put, requestBody,
   response
 } from '@loopback/rest';
-import {keys} from '../configuracion/keys';
-import {Credenciales, Usuario} from '../models';
+import { keys} from '../configuracion/keys';
+import { Credenciales, Usuario} from '../models';
 import { CambioPass } from '../models/cambio-pass.model';
+import { recuperarClave } from '../models/recuperarClave.model';
 import {AdministradorRepository, AsesorRepository, ClienteRepository, UsuarioRepository} from '../repositories';
 import {AutenticacionService} from '../services';
 const fetch = require('node-fetch');
@@ -210,16 +210,16 @@ export class UsuarioController {
 
   }
 
-  @post('/RecuperarPass/{email}')
+  @post('/RecuperarPass')
   @response(200, {
     description:"Recuperación contraseña del usuario"
   })
   async recuperar(
-    @requestBody () email:string
+    @requestBody () recuperarClave: recuperarClave
   ):Promise<Boolean>{
     let user=await this.usuarioRepository.findOne({
     where:{
-      email: email
+      email: recuperarClave.email
     }
   });
   if (user){
@@ -232,8 +232,9 @@ export class UsuarioController {
     let destino = user.email;
     let asunto = "Recuperación de clave de la APP Inmobiliaria Hogar Colombia"
     let mensaje = `Hola, ${user.nombres}, su nueva contraseña es , ${clave}`;
-
-    fetch(`${keys.urlNotificaciones}/email?destino=${destino}&asunto=${asunto}&mensaje=${mensaje}`)
+    console.log("Por ca Voy");
+    
+    fetch(`${keys.urlNotificaciones}/e-mail?destino=${destino}&asunto=${asunto}&contenido=${mensaje}`)
     .then((data:any)=>{
       console.log(data)
     });
@@ -267,7 +268,7 @@ export class UsuarioController {
         let asunto = "Cambio de clave de la APP Inmobiliaria Hogar Colombia"
         let mensaje = `Hola, ${user.nombres}, usted cambió su contraseña, esta contraseña es , ${datos.cNueva}`;
 
-        fetch(`${keys.urlNotificaciones}/email?destino=${destino}&asunto=${asunto}&mensaje=${mensaje}`)
+        fetch(`${keys.urlNotificaciones}/e-mail?destino=${destino}&asunto=${asunto}&contenido=${mensaje}`)
         .then((data:any)=>{
           console.log(data)
         });
