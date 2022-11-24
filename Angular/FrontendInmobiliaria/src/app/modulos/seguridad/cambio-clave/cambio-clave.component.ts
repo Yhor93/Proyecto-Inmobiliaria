@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { LocalStorageService } from 'src/app/servicios/shared/local-storage.service';
 import { SeguridadService } from 'src/app/servicios/shared/seguridad.service';
 
 @Component({
@@ -12,7 +13,8 @@ export class CambioClaveComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private servicioSeguridad: SeguridadService
+    private servicioSeguridad: SeguridadService,
+    private servicioLocalStorage: LocalStorageService
   ) {}
 
   ngOnInit(): void {
@@ -23,22 +25,23 @@ export class CambioClaveComponent implements OnInit {
     this.fCambioC = this.fb.group({
       claveActual: ['', Validators.required],
       nuevaClave: ['', Validators.required],
-      confirmarClave: ['', Validators.required],
+      cValidada: ['', Validators.required],
     });
   }
 
-   cambioC(){
-  //   let datos = new CambioClaveModel();
-  //   datos.claveActual=this.fCambioC.controls['claveActual'].value;
-  //   datos.nuevaClave=this.fCambioC.controls['nuevaClave'].value;
-  //   datos.confirmarClave=this.fCambioC.controls['confirmarClave'].value;
-  //   this.servicioSeguridad.cambioClave(datos).subscribe({
-  //     next: (data:CambioClaveModel)=>{
-  //       console.log(data);
-
-  //     },
-  //       error: (e)=>console.log(e)
-
-  //   })
+  cambioC() {
+    //   let datos = new CambioClaveModel();
+    //   let localStorage = new LocalStorageService();
+    //   let datoSesion = localStorage.obtenerSesionInfo();
+    //   datos.claveActual = this.fCambioC.controls['claveActual'].value;
+    //   datos.nuevaClave = this.fCambioC.controls['nuevaClave'].value;
+    //   datos.cValidada = this.fCambioC.controls['cValidada'].value;
+    //   datos.email = datoSesion.datos.email;
+    //   this.servicioSeguridad.cambioClave(datos).subscribe({
+    //     next: (data: boolean) => {
+    //       console.log(data);
+    //     },
+    //     error: (e) => console.log(e),
+    //   });
   }
 }

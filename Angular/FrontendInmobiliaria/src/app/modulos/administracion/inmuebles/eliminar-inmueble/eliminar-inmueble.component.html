@@ -1,21 +1,20 @@
-<div class="container">
-    <p> Esta uste seguro que desea eliminar el siguiente Immueble:</p>
-    <br />
-    <p>{{inmueble.valor}}</p>
-    <p>{{inmueble.tipoInmueble}}</p>
-    <p>{{inmueble.fotografias}}</p>
-    <p>{{inmueble.tipoOferta}}</p>
-    <p>{{inmueble.encargado}}</p>
-    <p>{{inmueble.contactoEncargado}}</p>
-    <p>{{inmueble.departamento}}</p>
-    <p>{{inmueble.cuidad}}</p>
-    <p>{{inmueble.direccion}}</p>
-    <p>{{inmueble.enlaceVideo}}</p>
-    <br />
-    <button (click)="Eliminar()" class="btn btn-succes light-blue darken-1">SI</button>&nbsp;
-    <BUtton routerLink="../../buscar-inmueble" class="btn btn-succes red darken-4">NO</BUtton>   
-    <br />
-    
-
-</div>
-
+<body>
+    <div class="container">
+        <h2> Esta usted seguro que desea eliminar el siguiente Immueble:</h2>
+        <br/>
+        <p>{{inmueble.valor}}</p>
+        <p>{{inmueble.tipoInmueble}}</p>
+        <p>{{inmueble.fotografias}}</p>
+        <p>{{inmueble.tipoOferta}}</p>
+        <p>{{inmueble.encargado}}</p>
+        <p>{{inmueble.contactoEncargado}}</p>
+        <p>{{inmueble.departamento}}</p>
+        <p>{{inmueble.cuidad}}</p>
+        <p>{{inmueble.direccion}}</p>
+        <p>{{inmueble.enlaceVideo}}</p>
+        <br />
+        <button (click)="Eliminar()" class="btn btn-succes light-blue darken-2">SI</button>&nbsp;
+        <BUtton routerLink="../../buscar-inmueble" class="btn btn-succes red darken-4">NO</BUtton>
+        <br />
+    </div>
+</body>

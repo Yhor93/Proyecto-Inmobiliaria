@@ -20,6 +20,12 @@ export class CambioPass extends Model {
   })
   cValidada: string;
 
+  @property({
+    type: 'string',
+    required: true,
+  })
+  email: string;
+
 
   constructor(data?: Partial<CambioPass>) {
     super(data);

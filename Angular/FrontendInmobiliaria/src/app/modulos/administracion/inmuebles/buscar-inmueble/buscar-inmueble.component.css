@@ -1,16 +1,18 @@
 .row {
-    display: flex;
-    align-items: left;
-    justify-content: center;
+  display: flex;
+  align-items: left;
+  justify-content: center;
 }
 
-.img{
-    max-width: 200px;
-    max-height: 200px;
+.img {
+  max-width: 200px;
+  max-height: 200px;
 }
 
 .ali {
-    text-align: justify;
-    text-justify: inter-word;
-    
-  }
+  text-align: justify;
+  text-justify: inter-word;
+}
+body{
+    background: -webkit-radial-gradient(#4b6bd2, #909190);
+}

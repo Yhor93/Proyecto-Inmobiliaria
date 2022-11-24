@@ -1,5 +1,5 @@
 .container{
-    background-color: #3949ab;
+    background-color: #07198e;
     width: 100%;
     padding: auto;
     border-radius: 7px;   
@@ -57,4 +57,5 @@ input:hover{
     cursor:pointer;
     border-radius: 18px;
 }
+
 

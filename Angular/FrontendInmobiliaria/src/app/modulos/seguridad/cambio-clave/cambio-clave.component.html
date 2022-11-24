@@ -1,46 +1,49 @@
 <br><br>
-<div class="row">
-    <div class="col s12 l4 offset-l4">
-        <div class="card grey lighten-3">
-            <div class="card-content">
-                <h4>Cambiar Clave</h4>
-                <form [formGroup]="fCambioC" (ngSubmit)="formCambioclave()">
-                    <div class="group">
-                        <div class="input-field col s12">
-                            <i class="material-icons prefix">lock_open</i>
-                            <label for="claveActual" class="label">Clave Actual</label>
-                            <input formControlName="claveActual" id="claveActual" type="text" class="input">
+
+<body>
+    <div class="row">
+        <div class="col s12 l4 offset-l4">
+            <div class="card grey lighten-3">
+                <div class="card-content">
+                    <h4>Cambiar Clave</h4>
+                    <form [formGroup]="fCambioC" (ngSubmit)="formCambioclave()">
+                        <div class="group">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">lock_open</i>
+                                <label for="claveActual" class="label">Clave Actual</label>
+                                <input formControlName="claveActual" id="claveActual" type="text" class="input">
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="group">
-                        <div class="input-field col s12">
-                            <i class="material-icons prefix">lock_reset</i>
-                            <label for="nuevaClave" class="label">Nueva Clave</label>
-                            <input formControlName="nuevaClave" id="nuevaClave" type="text" class="input">
+                        <div class="group">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">lock_reset</i>
+                                <label for="nuevaClave" class="label">Nueva Clave</label>
+                                <input formControlName="nuevaClave" id="nuevaClave" type="text" class="input">
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="group">
-                        <div class="input-field col s12">
-                            <i class="material-icons prefix">lock_clock</i>
-                            <label for="confirmarClave" class="label">Confirmar Nueva Clave</label>
-                            <input formControlName="confirmarClave" id="confirmarClave" type="text" class="input">
+                        <div class="group">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">lock_clock</i>
+                                <label for="cValidada" class="label">Confirmar Nueva Clave</label>
+                                <input formControlName="cValidada" id="cValidada" type="text" class="input">
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="row center-align">
-                        <button routerLink="/inicio" [disabled]="!fCambioC.valid" (click)="cambioC()"
-                        class="btn waves-effect waves-light" type="submit" name="action">Confirmar Cambio 
-                        <i class="material-icons rigth">check_circle</i>
-                        </button>
-                    </div>
+                        <div class="row center-align">
+                            <button routerLink="/inicio" [disabled]="!fCambioC.valid" (click)="cambioC()"
+                                class="btn waves-effect waves-light" type="submit" name="action">Confirmar Cambio
+                                <i class="material-icons rigth">check_circle</i>
+                            </button>
+                        </div>
 
-                    <div class="row center-align">
-                        <label for="tab-1">Inmobiliaria Hogar Colombia</label>
-                    </div>
-                </form>
+                        <div class="row center-align">
+                            <label for="tab-1">Inmobiliaria Hogar Colombia</label>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</body>

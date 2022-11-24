@@ -21,3 +21,6 @@ h2{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: #131313;
 }
+body{
+    background: -webkit-radial-gradient(#e6e8f0, #6457d0);
+}
