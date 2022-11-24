@@ -20,14 +20,16 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   fLoginValidador: FormGroup = new FormGroup({});
-  
+  siteKey: string = '';
 
    constructor(
     private fb: FormBuilder,
     private servicioSeguridad: SeguridadService,
     private servicioLocalStorage: LocalStorageService,
     private router: Router
-    ){ }
+    ){ 
+      this.siteKey= "6LcmFS4jAAAAADKJx5TZPt-EW0t8jKeB_0W-D1vP";
+    }
 
   ngOnInit(): void {
     this.LoginUsuario();
@@ -36,7 +38,8 @@ export class LoginComponent implements OnInit {
   LoginUsuario(){
     this.fLoginValidador=this.fb.group({
       usuario:["yormanqp@gmail.com",[Validators.required,Validators.email]],
-      clave: ["JiRSWE2k",[Validators.required]]
+      clave: ["JiRSWE2k",[Validators.required]],
+      recaptcha: [,[Validators.required]]
     });
   }
 

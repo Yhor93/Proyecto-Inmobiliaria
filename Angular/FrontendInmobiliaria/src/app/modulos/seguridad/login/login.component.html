@@ -28,7 +28,14 @@
                     </div>
                     <div class="row center-align">
                         <a routerLink="/seguridad/recuperar-clave" type="submit">Olvide la Clave</a>
-                        <hr>
+                    </div>
+                    <div class="container">
+                        <form [formGroup]="fLoginValidador">
+                            <ngx-recaptcha2 #captchaElem
+                              [siteKey]="siteKey"
+                              formControlName="recaptcha">
+                            </ngx-recaptcha2>
+                          </form>
                     </div>
                 </form>
             </div>
